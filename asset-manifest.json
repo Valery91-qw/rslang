@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/rslang/static/css/main.073c9b0a.css",
+    "main.js": "/rslang/static/js/main.54e010e3.js",
+    "static/js/787.b09a880f.chunk.js": "/rslang/static/js/787.b09a880f.chunk.js",
+    "static/media/logo.svg": "/rslang/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/rslang/index.html",
+    "main.073c9b0a.css.map": "/rslang/static/css/main.073c9b0a.css.map",
+    "main.54e010e3.js.map": "/rslang/static/js/main.54e010e3.js.map",
+    "787.b09a880f.chunk.js.map": "/rslang/static/js/787.b09a880f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.54e010e3.js"
+  ]
+}
