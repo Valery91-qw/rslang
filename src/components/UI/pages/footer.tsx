@@ -63,10 +63,10 @@ const Footer: React.FC = () => {
           <p>App developers:</p>
           <div className="footer-link__dev">
             <ul>
-              <li>
+              <li className="footer-link__dev-item">
                 <a href="https://github.com/igor2000xp/">igor2000xp</a>
               </li>
-              <li>
+              <li className="footer-link__dev-item">
                 <a href="https://github.com/Valery91-qw/">Valery91-qw</a>
               </li>
             </ul>
