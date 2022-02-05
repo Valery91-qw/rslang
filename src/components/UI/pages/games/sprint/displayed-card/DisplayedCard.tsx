@@ -12,6 +12,7 @@ const DisplayedCard: React.FC = () => {
   return (
     <div className="displayed-card">
       <Indicator amount={amount} />
+      <hr style={{ width: '100%' }} />
       <span>English world</span>
       <span>Translate from English</span>
       <div className="displayed-card__controls">
