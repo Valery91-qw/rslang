@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
+import './timer.css';
+
+const totalSeconds = 10;
 
 const Timer: React.FC = () => {
-  const [time, setTime] = useState<number>(10);
+  const [time, setTime] = useState<number>(totalSeconds);
   const timerRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
@@ -15,7 +18,7 @@ const Timer: React.FC = () => {
     };
   }, [timerRef, time, setTime]);
 
-  return <div>{time}</div>;
+  return <div className="timer">{time}</div>;
 };
 
 export default Timer;

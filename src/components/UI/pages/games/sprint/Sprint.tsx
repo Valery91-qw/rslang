@@ -8,8 +8,10 @@ const Sprint: React.FC = () => {
 
   return (
     <div className="sprint">
-      <h3>Current result {currentResult}</h3>
-      <Timer />
+      <div className="sprint-header">
+        <h3>Current result {currentResult}</h3>
+        <Timer />
+      </div>
       <DisplayedCard />
     </div>
   );
