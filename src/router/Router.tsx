@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import Sprint from '../components/UI/pages/games/sprint/Sprint';
 // just to check nested routes must delete
 function LinkToGames() {
   return (
@@ -19,7 +20,7 @@ const Router: React.FC = () => {
         <Route path="ebook" element={<div>ebook</div>} />
         <Route path="games">
           <Route index element={<LinkToGames />} />
-          <Route path="sprint" element={<div>sprint</div>} />
+          <Route path="sprint" element={<Sprint />} />
           <Route path="audioChallenge" element={<div>Audio challenge</div>} />
         </Route>
         <Route path="statistic" element={<div>Statistic</div>} />
