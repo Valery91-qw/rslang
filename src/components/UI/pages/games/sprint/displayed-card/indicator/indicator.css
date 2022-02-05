@@ -1,0 +1,20 @@
+.indicator {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.indicator li {
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+}
+
+.indicator .check {
+  background-color: white;
+}
+
+.indicator .uncheck {
+  background-color: black;
+}
