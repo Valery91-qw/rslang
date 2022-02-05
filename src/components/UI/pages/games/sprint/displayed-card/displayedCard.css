@@ -1,18 +1,12 @@
-.sprint {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 10px;
-}
-
-.displayedCard {
+.displayed-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
+  padding: 10px;
   border: 3px solid black;
 }
-.displayedCard__controls {
+.displayed-card__controls {
   display: flex;
   width: 100%;
   justify-content: space-around;

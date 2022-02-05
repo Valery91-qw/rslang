@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Sprint.css';
+import './sprint.css';
+import DisplayedCard from './displayed-card/DisplayedCard';
 
 const Sprint: React.FC = () => {
   const [currentResult] = useState<number>(10);
@@ -7,14 +8,7 @@ const Sprint: React.FC = () => {
   return (
     <div className="sprint">
       <h3>Current result {currentResult}</h3>
-      <div className="displayedCard">
-        <span>English world</span>
-        <span>Translate from English</span>
-        <div className="displayedCard__controls">
-          <button type="button">True</button>
-          <button type="button">False</button>
-        </div>
-      </div>
+      <DisplayedCard />
     </div>
   );
 };
