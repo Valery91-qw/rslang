@@ -6,7 +6,7 @@ const DisplayedCard: React.FC = () => {
   const [streak, setStreak] = useState<number>(0);
 
   const changeAmount = () => {
-    setStreak(streak + 1);
+    setStreak(() => streak + 1);
   };
 
   const resetAmount = () => {
@@ -20,10 +20,10 @@ const DisplayedCard: React.FC = () => {
       <span>English world</span>
       <span>Translate from English</span>
       <div className="displayed-card__controls">
-        <button type="button" onClick={changeAmount}>
+        <button className="button" type="button" onClick={changeAmount}>
           True
         </button>
-        <button type="button" onClick={resetAmount}>
+        <button className="button" type="button" onClick={resetAmount}>
           False
         </button>
       </div>

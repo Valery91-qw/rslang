@@ -4,7 +4,7 @@ import DisplayedCard from './displayed-card/DisplayedCard';
 import Timer from './timer/Timer';
 
 const Sprint: React.FC = () => {
-  const [currentResult] = useState<number>(10);
+  const [currentResult] = useState<number>(0);
 
   return (
     <div className="sprint">

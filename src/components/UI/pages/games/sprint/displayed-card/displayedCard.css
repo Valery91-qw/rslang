@@ -22,6 +22,7 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+  margin-top: 15px;
 }
 
 .displayed-card__divider {
@@ -29,4 +30,26 @@
   width: 100%;
   background-color: rgba(216, 216, 216, 20%);
   border: none;
+}
+
+.button {
+  padding: 12px 50px;
+
+  font-family: Open Sans, serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 19px;
+  color: #FFFFFF;
+
+  background: none;
+  border: 2px solid #DD0B56;
+  cursor: pointer;
+  transition: linear 0.1s;
+}
+
+.button:hover {
+  background-color: #DD0B56;
+  box-shadow: 0 0 1px 1px #DD0B56;
+  transition: linear 0.2s;
 }
