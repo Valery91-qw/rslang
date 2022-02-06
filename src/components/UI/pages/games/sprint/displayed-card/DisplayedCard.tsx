@@ -16,8 +16,7 @@ const DisplayedCard: React.FC = () => {
   return (
     <div className="displayed-card">
       <Indicator amount={streak} />
-      {/* must delete <hr /> of create style */}
-      <hr style={{ width: '100%' }} />
+      <hr className="displayed-card__divider" />
       <span>English world</span>
       <span>Translate from English</span>
       <div className="displayed-card__controls">

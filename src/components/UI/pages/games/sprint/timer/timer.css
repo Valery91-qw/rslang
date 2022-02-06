@@ -6,7 +6,9 @@
   height: 50px;
   padding: 5px;
 
-  font-size: 32px;
+  font-family: Open Sans, serif;
+  font-size: 36px;
+  color: #FFFFFF;
 
   border: 5px solid white;
   border-radius: 50%;
