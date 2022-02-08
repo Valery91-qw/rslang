@@ -1,4 +1,4 @@
-.sprint {
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
   padding: 10px 10px;
 }
 
-.sprint-header {
+.header {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   margin-bottom: 10px;
 }
 
-.sprint-header h3 {
+.header h3 {
   margin: 0;
   font-family: Open Sans, serif;
   font-size: 36px;

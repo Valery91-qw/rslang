@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './timer.css';
+import styles from './timer.module.css';
 
 const totalSeconds = 10;
 
@@ -18,7 +18,7 @@ const Timer: React.FC = () => {
     };
   }, [timerRef, time, setTime]);
 
-  return <div className="timer">{time}</div>;
+  return <div className={styles.timer}>{time}</div>;
 };
 
 export default Timer;

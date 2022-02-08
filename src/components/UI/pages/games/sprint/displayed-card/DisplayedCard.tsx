@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './displayedCard.css';
+import styles from './displayedCard.module.css';
 import Indicator from './indicator/Indicator';
 
 const DisplayedCard: React.FC = () => {
@@ -14,16 +14,16 @@ const DisplayedCard: React.FC = () => {
   };
 
   return (
-    <div className="displayed-card">
+    <div className={styles.wrapper}>
       <Indicator amount={streak} />
-      <hr className="displayed-card__divider" />
+      <hr className={styles.divider} />
       <span>English world</span>
       <span>Translate from English</span>
-      <div className="displayed-card__controls">
-        <button className="button" type="button" onClick={changeAmount}>
+      <div className={styles.controls}>
+        <button className={styles.button} type="button" onClick={changeAmount}>
           True
         </button>
-        <button className="button" type="button" onClick={resetAmount}>
+        <button className={styles.button} type="button" onClick={resetAmount}>
           False
         </button>
       </div>
