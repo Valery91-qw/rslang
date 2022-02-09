@@ -1,14 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './header.css';
 import MyButton, { CardVariant } from '../buttons/MyButton';
 import useFetchUser from '../../requests/useFetchUser';
+import HeaderIcons from './header-icons/HeaderIcons';
 
-const header = () => {
+const header:React.FC = () => {
   return (
     <div className='header'>
-      <div className="home-icons">
-        <img src='https://raw.githubusercontent.com/igor2000xp/rslang-asset/5ac09846807fdebe975d6de4fbf884437e2ea0c5/img/main/svg/Vector.svg'/>
-        <img src='https://raw.githubusercontent.com/igor2000xp/rslang-asset/5ac09846807fdebe975d6de4fbf884437e2ea0c5/img/main/svg/Home.svg'/>
+      <HeaderIcons />
+      <div>
+        <Link to="/">Main</Link>
+        <Link to="authorize">Authorize</Link>
+        <Link to="ebook">Ebook</Link>
+        <Link to="games">Games</Link>
+        <Link to="statistic">Statistic</Link>
       </div>
       <div className='home-buttons'>
         <MyButton onClick={ useFetchUser } width='14vh' height='4vh' variant={CardVariant.rounded}>Войти</MyButton>

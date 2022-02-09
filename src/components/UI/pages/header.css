@@ -11,8 +11,12 @@
 .home-icons {
     display: flex;
     flex-direction: column;
+    text-align: center;
     margin: 0 0 0 8vw;
-    justify-content: center;
+    cursor: pointer;
+}
+.home-icons:hover svg path {
+    fill: red;
 }
 .home-buttons {
     margin: 0 8vw 0 0;

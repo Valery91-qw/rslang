@@ -8,3 +8,10 @@ export interface IUserID {
   name: string;
   email: string;
 }
+export interface IUserInfo {
+  "message": string;
+  "token": string;
+  "refreshToken": string;
+  "userId": string;
+  "name": string;
+}
