@@ -1,6 +1,8 @@
 import React from 'react';
 import './UserForm.css'
 import MyButton from "../buttons/MyButton";
+// import { Simulate } from 'react-dom/test-utils';
+// import click = Simulate.click;
 
 const UsersForm = () => {
   return (
@@ -9,7 +11,7 @@ const UsersForm = () => {
         <input type='text' placeholder="User's name"/>
         <input type='text' placeholder="User's email"/>
         <input type='text' placeholder="User's password"/>
-        <MyButton>Отправить</MyButton>
+        <MyButton onClick={() => {console.log('click33')}}>Отправить</MyButton>
       </form>
     </div>
   );
