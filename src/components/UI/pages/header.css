@@ -21,3 +21,13 @@
 .home-buttons {
     margin: 0 8vw 0 0;
 }
+.header-navigation {
+    display: flex;
+    flex-direction: row;
+}
+.header-navigation__item a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    margin-left: 1vw;
+}
