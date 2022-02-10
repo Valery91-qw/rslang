@@ -1,15 +1,7 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Sprint from '../components/UI/pages/games/sprint/Sprint';
-// just to check nested routes must delete
-function LinkToGames() {
-  return (
-    <ul>
-      <Link to="sprint">to 1 game</Link>
-      <Link to="audioChallenge">to 2 game</Link>
-    </ul>
-  );
-}
+import Games from '../components/UI/pages/games/Games';
 
 const Router: React.FC = () => {
   return (
@@ -19,7 +11,7 @@ const Router: React.FC = () => {
         <Route path="authorize" element={<div>Authorize</div>} />
         <Route path="ebook" element={<div>ebook</div>} />
         <Route path="games">
-          <Route index element={<LinkToGames />} />
+          <Route index element={<Games />} />
           <Route path="sprint" element={<Sprint />} />
           <Route path="audioChallenge" element={<div>Audio challenge</div>} />
         </Route>
