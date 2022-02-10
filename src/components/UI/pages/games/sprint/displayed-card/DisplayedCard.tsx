@@ -6,7 +6,7 @@ import { WordAPIType } from '../../../../../../dal/wordAPI/wordAPI.type';
 interface IDisplayedCard {
   englishWord: WordAPIType,
   translateWord: WordAPIType,
-  deleteWord: (is: string) => void
+  deleteWord: (is: string, isGuessed: boolean) => void
 }
 
 const DisplayedCard: React.FC<IDisplayedCard> = ({ englishWord, translateWord, deleteWord }) => {
@@ -15,19 +15,21 @@ const DisplayedCard: React.FC<IDisplayedCard> = ({ englishWord, translateWord, d
   const isTrue = () => {
     if (englishWord.id === translateWord.id) {
       setStreak(() => streak + 1);
+      deleteWord(englishWord.id, true);
     } else {
       setStreak(0);
+      deleteWord(englishWord.id, false);
     }
-    deleteWord(englishWord.id);
   };
 
   const isFalse = () => {
     if (englishWord.id !== translateWord.id) {
       setStreak(() => streak + 1);
+      deleteWord(englishWord.id, true);
     } else {
       setStreak(0);
+      deleteWord(englishWord.id, false);
     }
-    deleteWord(englishWord.id);
   };
 
   return (
