@@ -9,7 +9,10 @@ const Sprint: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <h3>Current result {currentResult}</h3>
+        <h3>
+          Current result
+          {currentResult}
+        </h3>
         <Timer />
       </div>
       <DisplayedCard />
