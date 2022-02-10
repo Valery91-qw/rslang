@@ -11,13 +11,27 @@ interface SprintType {
 
 const Sprint: React.FC<SprintType> = () => {
   const [currentResult] = useState<number>(0);
-  const [, setWords] = useState<Array<WordAPIType>>();
+  const [words, setWords] = useState<Array<WordAPIType>>();
+  const [oneWord, setOneWord] = useState<WordAPIType>();
+  const [twoWord, setTwoWord] = useState<WordAPIType>();
 
   useEffect(() => {
     wordAPI.wordAPI.getWords().then((res) => {
       setWords(res);
     });
   }, []);
+
+  const deleteWord = (id: string) => {
+    const word = words?.find((el) => el.id === id);
+    setWords(words?.filter((el) => el !== word));
+  };
+
+  useEffect(() => {
+    if (words && words.length >= 1) {
+      setOneWord(words[Math.floor(Math.random() * words.length)]);
+      setTwoWord(words[Math.floor(Math.random() * words.length)]);
+    }
+  }, [words, words?.length, setOneWord, setTwoWord]);
 
   return (
     <div className={styles.wrapper}>
@@ -28,7 +42,9 @@ const Sprint: React.FC<SprintType> = () => {
         </h3>
         <Timer />
       </div>
-      <DisplayedCard />
+      {
+        oneWord && twoWord ? <DisplayedCard englishWord={oneWord} translateWord={twoWord} deleteWord={deleteWord} /> : 'what'
+      }
     </div>
   );
 };

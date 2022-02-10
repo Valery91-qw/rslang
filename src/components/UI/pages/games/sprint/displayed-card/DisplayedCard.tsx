@@ -1,29 +1,46 @@
 import React, { useState } from 'react';
 import styles from './displayedCard.module.css';
 import Indicator from './indicator/Indicator';
+import { WordAPIType } from '../../../../../../dal/wordAPI/wordAPI.type';
 
-const DisplayedCard: React.FC = () => {
+interface IDisplayedCard {
+  englishWord: WordAPIType,
+  translateWord: WordAPIType,
+  deleteWord: (is: string) => void
+}
+
+const DisplayedCard: React.FC<IDisplayedCard> = ({ englishWord, translateWord, deleteWord }) => {
   const [streak, setStreak] = useState<number>(0);
 
-  const changeAmount = () => {
-    setStreak(() => streak + 1);
+  const isTrue = () => {
+    if (englishWord.id === translateWord.id) {
+      setStreak(() => streak + 1);
+    } else {
+      setStreak(0);
+    }
+    deleteWord(englishWord.id);
   };
 
-  const resetAmount = () => {
-    setStreak(0);
+  const isFalse = () => {
+    if (englishWord.id !== translateWord.id) {
+      setStreak(() => streak + 1);
+    } else {
+      setStreak(0);
+    }
+    deleteWord(englishWord.id);
   };
 
   return (
     <div className={styles.wrapper}>
       <Indicator amount={streak} />
       <hr className={styles.divider} />
-      <span>English world</span>
-      <span>Translate from English</span>
+      <span>{englishWord.word}</span>
+      <span>{translateWord.wordTranslate}</span>
       <div className={styles.controls}>
-        <button className={styles.button} type="button" onClick={changeAmount}>
+        <button className={styles.button} type="button" onClick={isTrue}>
           True
         </button>
-        <button className={styles.button} type="button" onClick={resetAmount}>
+        <button className={styles.button} type="button" onClick={isFalse}>
           False
         </button>
       </div>
