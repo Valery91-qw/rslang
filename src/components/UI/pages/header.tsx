@@ -1,11 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 import MyButton, { CardVariant } from '../buttons/MyButton';
-import useFetchUser from '../../requests/useFetchUser';
+// import useFetchUser from '../../requests/useFetchUser';
 import HeaderIcons from './header-icons/HeaderIcons';
+import axios from 'axios';
+import { IUserID } from '../../types/types';
+import { API_URL, TOKEN } from '../../../constants';
+import useFetchUser from '../../requests/useFetchUser';
+import { controlClick } from '../../../App';
 
 const header:React.FC = () => {
+  const [userID, setUserID] = useState<IUserID>();
+  const userIDg = {id: '6201778e84b3ea001594d79c', name: '', email: ''};
+
+  const clickHandler0 = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log('MouseEvent');
+  };
+
+  const clickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log('inputRef.current?.value');
+    await fetchUserApp00();
+  }
+
+  async function fetchUserApp00() {
+    try {
+      const response = await axios.get<IUserID>((API_URL + '/users/' + userIDg.id),
+        {
+          headers: {
+            'Authorization': `Bearer ` +  TOKEN,
+            'Accept': 'application/json',
+          }
+        });
+      setUserID(response.data);
+      console.log(response.data);
+    } catch ( error ) {
+      alert(error);
+    }
+  }
+
   return (
     <div className='header'>
       <HeaderIcons />
@@ -29,7 +62,8 @@ const header:React.FC = () => {
 
       </div>
       <div className='home-buttons'>
-        <MyButton onClick={ useFetchUser } width='14vh' height='4vh' variant={CardVariant.rounded}>Войти</MyButton>
+        {/*<MyButton myClick={clickHandler} width='14vh' height='4vh' variant={CardVariant.rounded}>Войти</MyButton>*/}
+        <button onClick={clickHandler}>Войти</button>
       </div>
 
     </div>

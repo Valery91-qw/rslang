@@ -1,4 +1,18 @@
 .UserForm {
-    max-width: 600px;
-    max-height: 300px;
+    min-width: 400px;
+    width: 50vw;
+    min-height: 300px;
+    padding: 5vh;
+    background-color: rgba(221, 11, 86, 0.47);
+    border-radius: 5vh;
 }
+.inputs {
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+}
+.registration_buttons {
+    margin: 5vh 0 0 0;
+    width: 100%;
+}
+

@@ -12,7 +12,8 @@ export interface IButtonProps {
   color?: string;
   variant?: CardVariant;
   children: string;
-  onClick: (user: string) => void;
+  // type?: string;
+  myClick?: (e:React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const MyButton: React.FC<IButtonProps> = ({
@@ -21,7 +22,8 @@ const MyButton: React.FC<IButtonProps> = ({
   children,
   color,
   variant,
-  onClick,
+  // type,
+  myClick = onclick,
 }) => {
   const [state, setState] = useState('Igor');
   return (
@@ -31,7 +33,8 @@ const MyButton: React.FC<IButtonProps> = ({
         className="floatingButton myBtn"
         style={{ color, width, height, borderRadius: variant === CardVariant.rounded? '2vh': '0.5vh'
         }}
-        onClick={() => onClick(state)}
+        onClick={() => myClick}
+        // onClick = Click;
       >
         {children}
       </button>
