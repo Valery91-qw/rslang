@@ -45,14 +45,18 @@ const Sprint: React.FC<SprintType> = () => {
     setWords(words?.filter((el) => el !== word));
   };
 
+  const finishGame = () => {
+    setFinish(true);
+    setShow(true);
+  };
+
   useEffect(() => {
     if (words && words.length) {
       setOneWord(words[Math.floor(Math.random() * words.length)]);
       setTwoWord(words[Math.floor(Math.random() * words.length)]);
     }
     if (words?.length === 0) {
-      setFinish(true);
-      setShow(true);
+      finishGame();
     }
   }, [words, words?.length, setOneWord, setTwoWord, setFinish]);
 
@@ -63,7 +67,7 @@ const Sprint: React.FC<SprintType> = () => {
           Current result
           {currentResult}
         </h3>
-        <Timer />
+        <Timer handlerAfter={finishGame} />
       </div>
       {
         oneWord && twoWord
