@@ -31,7 +31,7 @@ const Sprint: React.FC<SprintType> = () => {
   };
 
   useEffect(() => {
-    wordAPI.wordAPI.getWords().then((res) => {
+    wordAPI.getWords().then((res) => {
       setWords(res);
     });
   }, []);

@@ -18,6 +18,4 @@ const wordAPI = {
   },
 };
 
-export default {
-  wordAPI,
-};
+export default wordAPI;
