@@ -10,12 +10,12 @@ export type MatchesWord = {
 
 interface IResults {
   handleClose: () => void
-  show: boolean
+  isShow: boolean
   matchesWord: Array<MatchesWord>
 }
 
-const Results: React.FC<IResults> = ({ handleClose, show, matchesWord }) => {
-  const isShowClass = show ? 'modal-show' : 'modal-hidden';
+const Results: React.FC<IResults> = ({ handleClose, isShow, matchesWord }) => {
+  const isShowClass = isShow ? 'modal-show' : 'modal-hidden';
 
   return (
     <div className={`modal ${isShowClass}`}>

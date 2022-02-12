@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './sprint.module.css';
 import DisplayedCard from './displayed-card/DisplayedCard';
 import Timer from './timer/Timer';
@@ -11,12 +12,23 @@ interface SprintType {
 }
 
 const Sprint: React.FC<SprintType> = () => {
-  const [currentResult] = useState<number>(0);
+  const navigate = useNavigate();
+  const [currentResult, setCurrentResult] = useState<number>(0);
   const [words, setWords] = useState<Array<WordAPIType>>();
   const [oneWord, setOneWord] = useState<WordAPIType>();
   const [twoWord, setTwoWord] = useState<WordAPIType>();
   const [finish, setFinish] = useState(false);
   const [statistic, setStatistic] = useState<Array<MatchesWord>>([]);
+  const [isShow, setShow] = useState<boolean>(false);
+
+  const increaseScore = () => {
+    setCurrentResult((cur) => cur + 10);
+  };
+
+  const closeModal = () => {
+    setShow(false);
+    navigate('/games');
+  };
 
   useEffect(() => {
     wordAPI.wordAPI.getWords().then((res) => {
@@ -40,6 +52,7 @@ const Sprint: React.FC<SprintType> = () => {
     }
     if (words?.length === 0) {
       setFinish(true);
+      setShow(true);
     }
   }, [words, words?.length, setOneWord, setTwoWord, setFinish]);
 
@@ -53,10 +66,21 @@ const Sprint: React.FC<SprintType> = () => {
         <Timer />
       </div>
       {
-        oneWord && twoWord ? <DisplayedCard englishWord={oneWord} translateWord={twoWord} deleteWord={deleteWord} /> : 'what'
+        oneWord && twoWord
+          ? (
+            <DisplayedCard
+              englishWord={oneWord}
+              translateWord={twoWord}
+              deleteWord={deleteWord}
+              increaseScore={increaseScore}
+            />
+          )
+          : <></>
       }
       {
-        finish ? <Results matchesWord={statistic} show handleClose={() => console.log} /> : <></>
+        finish && isShow
+          ? <Results matchesWord={statistic} isShow={isShow} handleClose={closeModal} />
+          : <></>
       }
     </div>
   );

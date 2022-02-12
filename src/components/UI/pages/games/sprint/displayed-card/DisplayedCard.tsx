@@ -7,14 +7,18 @@ interface IDisplayedCard {
   englishWord: WordAPIType,
   translateWord: WordAPIType,
   deleteWord: (is: string, isGuessed: boolean) => void
+  increaseScore: () => void
 }
 
-const DisplayedCard: React.FC<IDisplayedCard> = ({ englishWord, translateWord, deleteWord }) => {
+const DisplayedCard: React.FC<IDisplayedCard> = ({
+  englishWord, translateWord, deleteWord, increaseScore,
+}) => {
   const [streak, setStreak] = useState<number>(0);
 
   const isTrue = () => {
     if (englishWord.id === translateWord.id) {
       setStreak(() => streak + 1);
+      increaseScore();
       deleteWord(englishWord.id, true);
     } else {
       setStreak(0);
@@ -25,6 +29,7 @@ const DisplayedCard: React.FC<IDisplayedCard> = ({ englishWord, translateWord, d
   const isFalse = () => {
     if (englishWord.id !== translateWord.id) {
       setStreak(() => streak + 1);
+      increaseScore();
       deleteWord(englishWord.id, true);
     } else {
       setStreak(0);
