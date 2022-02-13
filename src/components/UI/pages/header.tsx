@@ -1,43 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './header.css';
+import './header-icons/header.css';
 import MyButton, { CardVariant } from '../buttons/MyButton';
-// import useFetchUser from '../../requests/useFetchUser';
 import HeaderIcons from './header-icons/HeaderIcons';
-import axios from 'axios';
-import { IUserID } from '../../types/types';
-import { API_URL, TOKEN } from '../../../constants';
-import useFetchUser from '../../requests/useFetchUser';
-import { controlClick } from '../../../App';
+import UsersForm from '../form/UsersForm';
+
+// interface IHeader {
+//   onClick: () => void;
+// }
 
 const header:React.FC = () => {
-  const [userID, setUserID] = useState<IUserID>();
-  const userIDg = {id: '6201778e84b3ea001594d79c', name: '', email: ''};
+  const [formCorrect, setFormCorrect] = useState<string>();
+  useEffect(() => {
+    console.log('Go-oo!');
+    setFormCorrect('UserForm');
+  }, []);
 
-  const clickHandler0 = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log('MouseEvent');
+    setFormCorrect('UserForm active');
   };
-
-  const clickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log('inputRef.current?.value');
-    await fetchUserApp00();
-  }
-
-  async function fetchUserApp00() {
-    try {
-      const response = await axios.get<IUserID>((API_URL + '/users/' + userIDg.id),
-        {
-          headers: {
-            'Authorization': `Bearer ` +  TOKEN,
-            'Accept': 'application/json',
-          }
-        });
-      setUserID(response.data);
-      console.log(response.data);
-    } catch ( error ) {
-      alert(error);
-    }
-  }
 
   return (
     <div className='header'>
@@ -62,10 +44,9 @@ const header:React.FC = () => {
 
       </div>
       <div className='home-buttons'>
-        {/*<MyButton myClick={clickHandler} width='14vh' height='4vh' variant={CardVariant.rounded}>Войти</MyButton>*/}
-        <button onClick={clickHandler}>Войти</button>
+        <button onClick={clickHandler} >Войти</button>
       </div>
-
+      <UsersForm className={ formCorrect === undefined ? '' : formCorrect} setClassName={setFormCorrect}/>
     </div>
   );
 };

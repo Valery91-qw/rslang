@@ -6,16 +6,32 @@ import { API_URL } from '../../../constants';
 import { IUser, IUserInfo } from '../../types/types';
 // import { controlClick } from '../../../App';
 // import useFetchUser from '../../requests/useFetchUser';
-
 // import { Simulate } from 'react-dom/test-utils';
 // import click = Simulate.click;
 
-const UsersForm:React.FC = () => {
+interface IUserFormsProps {
+  className:string;
+  setClassName: (classString: string) => void;
+}
+
+const UsersForm:React.FC<IUserFormsProps> = ({className, setClassName}) => {
   // const [user, setUserID] = useState<IUser>();
   // const [userInfo, setUserInfo] = useState<IUserInfo>();
   const inputRefName = useRef<HTMLInputElement>(null);
   const inputRefEmail = useRef<HTMLInputElement>(null);
   const inputRefPass = useRef<HTMLInputElement>(null);
+
+  // const [classNameForm, setClassNameForm] = useState<string>();
+  // useState()
+  // setClassName((className));
+  // useEffect(() => {
+    // setClassNameForm(className);
+  //   console.log(className, 'useEffect');
+  // }, [className]);
+  // className += ' active';
+
+  console.log(className);
+  // const positionForm = 'UserForm';
 
   const clickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log('inputRef.current?.value');
@@ -68,6 +84,11 @@ const UsersForm:React.FC = () => {
   const clearStorage = (e: React.MouseEvent<HTMLButtonElement>) => {
     localStorage.clear();
   }
+
+  const closeForm = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setClassName('UserForm');
+    console.log('classNameForm*******', setClassName);
+  }
   // const getSignIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
   //   console.log('Вход getSignIn');
   //   try {
@@ -97,7 +118,7 @@ const UsersForm:React.FC = () => {
   // },[]);
 
   return (
-    <form className='UserForm'>
+    <form className={className}>
       <div className='inputs'>
         <input ref={inputRefName} type='text' placeholder="User's name"/>
         <input ref={inputRefEmail} type='text' placeholder="User's email"/>
@@ -108,6 +129,7 @@ const UsersForm:React.FC = () => {
           <button type='button' onClick={clickHandler}>Регистрация</button>
           <button type='button' onClick={singIn}>Sign In</button>
           <button type='button' onClick={clearStorage}>Sign out</button>
+          <button type='button' onClick={closeForm}>Close form</button>
         </div>
 
       </div>

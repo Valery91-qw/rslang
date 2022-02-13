@@ -2,34 +2,26 @@ import React, { useEffect, useState } from 'react';
 import './normalize.css';
 import './App.css';
 import Footer from './components/UI/pages/footer';
-import MyButton, { CardVariant } from './components/UI/buttons/MyButton';
-import Cards from './components/UI/Cards';
-import { IUser, IUserID } from './components/types/types';
-import axios, { Axios } from 'axios';
-import useFetchUser from './components/requests/useFetchUser';
 import Header from './components/UI/pages/header';
-import { API_URL, TOKEN } from './constants';
-import UsersForm from './components/UI/form/UsersForm';
-import EventsExample from './components/requests/EventsExample';
+import Router from './router/Router';
+// import { API_URL, TOKEN } from './constants';
+// import UsersForm from './components/UI/form/UsersForm';
+// import EventsExample from './components/requests/EventsExample';
 
-export function controlClick() {
-  console.log('controlClick');
-}
+// export function controlClick() {
+//   console.log('controlClick');
+// }
 
 const App: React.FC = () => {
-  const [userID, setUserID] = useState<IUserID>();
-  // useEffect(() => {
-  //   fetchUserApp();
-  // },[]);
+  const [formCorrect, setFormCorrect] = useState<string>();
 
+  // const userIDg = {id: '6201778e84b3ea001594d79c', name: '', email: ''};
 
-  const userIDg = {id: '6201778e84b3ea001594d79c', name: '', email: ''};
-
-  async function fetchUserApp0() {
-    console.log('useFetchUser');
-    // useFetchUser();
-  }
-
+  // async function fetchUserApp0() {
+  //   console.log('useFetchUser');
+  //   // useFetchUser();
+  // }
+  //
 
   // async function fetchUserApp() {
   //   try {
@@ -46,22 +38,15 @@ const App: React.FC = () => {
   //     alert(error);
   //   }
   // }
-  console.log(userID);
+  // console.log(userID);
 
   return (
     <div className="App">
       <div className="wrapper">
+        {/*<Header onClick={() => { setFormCorrect('UserForm active'); console.log(formCorrect, 'Form GO!')}} />*/}
         <Header />
         <div className="main">
-          <h1>Hello World</h1>
-          {/*<MyButton onClick={(user: string) => {console.log('click', user)}} width='14vh' height='4vh' variant={CardVariant.rounded}>Войти</MyButton>*/}
-          {/*<MyButton onClick={ fetchUserApp } width='14vh' height='4vh' variant={CardVariant.rounded}>Войти</MyButton>*/}
-          {/*<MyButton onClick={ fetchUserApp } width='14vh' height='4vh' variant={CardVariant.rounded}>Войти</MyButton>*/}
-          {/*<Cards onClick={(user: string) => {console.log('click22', user)}} width='100px' height='100px'>*/}
-          {/*  <button>Кнопка</button>*/}
-          {/*</Cards>*/}
-          <UsersForm />
-          {/*<EventsExample />*/}
+          <Router />
         </div>
         <Footer />
       </div>
