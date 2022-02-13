@@ -8,10 +8,10 @@ import { WordAPIType } from '../../../../../dal/wordAPI/wordAPI.type';
 import Results, { MatchesWord } from '../results/Results';
 
 interface SprintType {
-  isLogin: boolean
+  lvl?: number
 }
 
-const Sprint: React.FC<SprintType> = () => {
+const Sprint: React.FC<SprintType> = ({ lvl }) => {
   const navigate = useNavigate();
   const [currentResult, setCurrentResult] = useState<number>(0);
   const [words, setWords] = useState<Array<WordAPIType>>();
@@ -31,10 +31,10 @@ const Sprint: React.FC<SprintType> = () => {
   };
 
   useEffect(() => {
-    wordAPI.getWords().then((res) => {
+    wordAPI.getWords(lvl).then((res) => {
       setWords(res);
     });
-  }, []);
+  }, [lvl]);
 
   const deleteWord = (id: string, isGuessed: boolean) => {
     const word = words?.find((el) => el.id === id);
@@ -88,6 +88,10 @@ const Sprint: React.FC<SprintType> = () => {
       }
     </div>
   );
+};
+
+Sprint.defaultProps = {
+  lvl: 0,
 };
 
 export default Sprint;
