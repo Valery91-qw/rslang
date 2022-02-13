@@ -15,7 +15,7 @@ const listenIcon = {
 const Games: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <Link to="sprint" className={styles.link} style={runIcon} />
+      <Link to={`sprint/${true}`} className={styles.link} style={runIcon} />
       <Link to="audioChallenge" className={styles.link} style={listenIcon} />
     </div>
   );
