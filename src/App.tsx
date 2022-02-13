@@ -5,9 +5,7 @@ import Footer from './components/UI/pages/footer';
 import Header from './components/UI/pages/header';
 import Router from './router/Router';
 
-
 const App: React.FC = () => {
-
   return (
     <div className="App">
       <div className="wrapper">
