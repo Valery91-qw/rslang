@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header-icons/header.css';
-import MyButton, { CardVariant } from '../buttons/MyButton';
 import HeaderIcons from './header-icons/HeaderIcons';
 import UsersForm from '../form/UsersForm';
-
-// interface IHeader {
-//   onClick: () => void;
-// }
 
 const header:React.FC = () => {
   const [formCorrect, setFormCorrect] = useState<string>();
