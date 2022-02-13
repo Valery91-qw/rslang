@@ -20,14 +20,19 @@ const Results: React.FC<IResults> = ({ handleClose, isShow, matchesWord }) => {
   return (
     <div className={`${styles.modal} ${isShowClass}`}>
       <div className={styles.modalMain}>
-        <button type="button" onClick={handleClose} className={styles.closeButton}>close</button>
+        <button type="button" onClick={handleClose} className={styles.closeButton}> </button>
         {
                 matchesWord.map((el) => {
                   return (
-                    <div key={el.id} className={styles.fieldWrapper}>
+                    <div
+                      key={el.id}
+                      className={el.isGuessed
+                        ? styles.fieldWrapper
+                        : `${styles.fieldWrapper} ${styles.incorrect}`}
+                    >
                       <span>{el.word}</span>
                       <span>{el.translate}</span>
-                      <span>{String(el.isGuessed)}</span>
+                      <span>{el.isGuessed ? 'correct' : 'incorrect'}</span>
                     </div>
                   );
                 })
