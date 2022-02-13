@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    min-height: 50px;
+    height: 10vh;
+    background-color: black;
+    border-radius: 0 0 4vw 4vw;
+    align-items: center;
+}
+.home-icons {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 0 0 8vw;
+    cursor: pointer;
+}
+.home-icons:hover svg path {
+    fill: red;
+}
+.home-buttons {
+    margin: 0 8vw 0 0;
+}
+.header-navigation {
+    display: flex;
+    flex-direction: row;
+}
+.header-navigation__item a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    margin-left: 1vw;
+}
