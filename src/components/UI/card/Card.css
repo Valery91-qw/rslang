@@ -1,0 +1,98 @@
+.card {
+  width: 30vw;
+  min-height: 40vw;
+  color: black;
+  border-radius: 2vh;
+  ont-family: Rubik,sans-serif;
+  border: 2px solid red;
+  background-color: rgb(248, 221, 236);
+  box-shadow: 1vw 1vw 1vw rgba(253, 66, 237, 0.56);
+}
+.card h5 {
+  margin-left:2vw;
+  font-size: 2vw;
+}
+.card h6 {
+  font-size: 2vw;
+}
+.card-img-my {
+  min-width: 100%;
+  min-height: 100%;
+  flex-shrink: 0;
+}
+.card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 100;
+}
+.img-wrapper {
+  width: 100%;
+  height: 15vw;
+  /*border: 2px solid #515151;*/
+}
+.gradient {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+}
+.gradient:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  background-image: linear-gradient(rgb(248, 221, 236) 20%, transparent, rgb(248, 221, 236));
+  opacity: 0.95;
+}
+.exmpl {
+  /*overflow: hidden;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-body {
+  z-index: 100;
+}
+.btn-sound-my {
+  height: 5vw;
+  width: 5vw;
+  border-radius: 50%;
+  padding: 0;
+  border: 1px solid red;
+  background-color: rgba(236, 129, 178, 0.53);
+  box-shadow: 0.2vw 0.2vw 0.2vw rgb(255, 0, 231);
+}
+.btn-sound-my img {
+  width: 3vw;
+  height: 3vw;
+}
+.answer-text {
+  font-weight: 200;
+  font-size: 1.5vw;
+}
+.card-add {
+  border-top: 1px solid red;
+  margin: 0;
+  padding: 0;
+}
+.card-add h6 {
+  font-weight: 400;
+  font-size: 1.1vw;
+  margin: 0;
+}
+.btn-primary-my {
+  background-color: #bf0df0;
+  border: 1px solid #1c052d;
+  width: 4vw;
+  height: 4vw;
+}
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -9,6 +9,7 @@
     top: 20vh;
     left: 120vw;
     transition-duration: 1s;
+    z-index: 100;
 }
 .active {
     top: 20vh;
@@ -23,4 +24,16 @@
     margin: 5vh 0 0 0;
     width: 100%;
 }
-
+.btn-outline-danger-my {
+    width: 16vh;
+    background-color: rgba(255, 255, 255, 0.83);
+    border-radius: 12.5vh;
+    border: 2px solid red;
+}
+.input-button {
+    display: flex;
+    flex-direction: row;
+}
+.button-close {
+    margin: 3vh;
+}
