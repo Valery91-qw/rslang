@@ -36,6 +36,15 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
     });
   }, [lvl]);
 
+  useEffect(() => {
+    if (words && words.length < 10) {
+      wordAPI.getWords(lvl, Math.floor(Math.random() * 10))
+        .then((res) => {
+          setWords([...words, ...res]);
+        });
+    }
+  }, [words, words?.length, lvl]);
+
   const deleteWord = (id: string, isGuessed: boolean) => {
     const word = words?.find((el) => el.id === id);
     if (!word) return;
