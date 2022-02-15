@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './sprint.module.css';
 import DisplayedCard from './displayed-card/DisplayedCard';
@@ -45,10 +45,10 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
     setWords(words?.filter((el) => el !== word));
   };
 
-  const finishGame = () => {
+  const finishGame = useCallback(() => {
     setFinish(true);
     setShow(true);
-  };
+  }, []);
 
   useEffect(() => {
     if (words && words.length) {
@@ -58,7 +58,7 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
     if (words?.length === 0) {
       finishGame();
     }
-  }, [words, words?.length, setOneWord, setTwoWord, setFinish]);
+  }, [words, words?.length, setOneWord, setTwoWord, setFinish, finishGame]);
 
   return (
     <div className={styles.wrapper}>
