@@ -18,8 +18,9 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
   const [oneWord, setOneWord] = useState<WordAPIType>();
   const [twoWord, setTwoWord] = useState<WordAPIType>();
   const [statistic, setStatistic] = useState<Array<MatchesWord>>([]);
+  const [isLoad, setIsLoad] = useState<boolean>(false);
   const [isShow, setShow] = useState<boolean>(false);
-  const [finish, setFinish] = useState(false);
+  const [finish, setFinish] = useState<boolean>(false);
 
   const increaseScore = () => {
     setCurrentResult((cur) => cur + 10);
@@ -29,12 +30,6 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
     setShow(false);
     navigate('/games');
   };
-
-  useEffect(() => {
-    wordAPI.getWords(lvl).then((res) => {
-      setWords(res);
-    });
-  }, [lvl]);
 
   const deleteWord = (id: string, isGuessed: boolean) => {
     const word = words?.find((el) => el.id === id);
@@ -51,14 +46,22 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
   }, []);
 
   useEffect(() => {
+    wordAPI.getWords(lvl).then((res) => {
+      setWords(res);
+    });
+  }, [lvl]);
+
+  useEffect(() => {
     if (words && words.length) {
       setOneWord(words[Math.floor(Math.random() * words.length)]);
       setTwoWord(words[Math.floor(Math.random() * words.length)]);
     }
     if (words?.length === 0) {
+      setIsLoad(true);
       wordAPI.getWords(lvl, Math.floor(Math.random() * 10))
         .then((res) => {
           setWords([...res]);
+          setIsLoad(false);
         });
     }
   }, [words, words?.length, setOneWord, setTwoWord, setFinish, finishGame, setWords, lvl]);
@@ -80,6 +83,7 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
               translateWord={twoWord}
               deleteWord={deleteWord}
               increaseScore={increaseScore}
+              isLoad={isLoad}
             />
           )
           : <></>
