@@ -2,7 +2,7 @@ import axios from 'axios';
 import { WordAPIType } from './wordAPI.type';
 
 const instance = axios.create({
-  baseURL: 'https://react-learnwords-example.herokuapp.com',
+  baseURL: 'https://rslang03.herokuapp.com',
 });
 
 const wordAPI = {
