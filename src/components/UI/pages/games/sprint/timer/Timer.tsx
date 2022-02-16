@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './timer.module.css';
 
-const totalSeconds = 10;
+const totalSeconds = 60;
 
 type TimerType = {
   handlerAfter: () => void

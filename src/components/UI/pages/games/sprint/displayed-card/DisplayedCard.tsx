@@ -8,10 +8,11 @@ interface IDisplayedCard {
   translateWord: WordAPIType,
   deleteWord: (is: string, isGuessed: boolean) => void
   increaseScore: () => void
+  isLoad: boolean
 }
 
 const DisplayedCard: React.FC<IDisplayedCard> = ({
-  englishWord, translateWord, deleteWord, increaseScore,
+  englishWord, translateWord, deleteWord, increaseScore, isLoad,
 }) => {
   const [streak, setStreak] = useState<number>(0);
 
@@ -44,10 +45,10 @@ const DisplayedCard: React.FC<IDisplayedCard> = ({
       <span>{englishWord.word}</span>
       <span>{translateWord.wordTranslate}</span>
       <div className={styles.controls}>
-        <button className={styles.button} type="button" onClick={isTrue}>
+        <button className={styles.button} type="button" disabled={isLoad} onClick={isTrue}>
           True
         </button>
-        <button className={styles.button} type="button" onClick={isFalse}>
+        <button className={styles.button} type="button" disabled={isLoad} onClick={isFalse}>
           False
         </button>
       </div>

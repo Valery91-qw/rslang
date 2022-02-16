@@ -1,2 +1,1 @@
-export const API_URL = 'https://react-learnwords-example.herokuapp.com';
-export const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDE3NzhlODRiM2VhMDAxNTk0ZDc5YyIsImlhdCI6MTY0NDU4Nzc4MSwiZXhwIjoxNjQ0NjAyMTgxfQ.mHRCLChjbG2fKX-1iBQO8sBEmxajVnZmmJMpP7iM1kM';
+export const API_URL = 'https://rslang03.herokuapp.com';
