@@ -70,18 +70,25 @@ const UsersForm:React.FC<IUserFormsProps> = ({className, setClassName}) => {
 
   return (
     <form className={className}>
-      <div className='inputs'>
-        <input ref={inputRefName} type='text' placeholder="User's name"/>
-        <input ref={inputRefEmail} type='text' placeholder="User's email"/>
-        <input ref={inputRefPass} type='text' placeholder="User's password"/>
-        <div className="registration_buttons">
-          <button type='button' onClick={clickHandler}>Регистрация</button>
-          <button type='button' onClick={singIn}>Sign In</button>
-          <button type='button' onClick={clearStorage}>Sign out</button>
-          <button type='button' onClick={closeForm}>Close form</button>
+      <div className='input-button'>
+        <div className='inputs'>
+          <input ref={inputRefName} type='text' placeholder="User's name"/>
+          <input ref={inputRefEmail} type='text' placeholder="User's email"/>
+          <input ref={inputRefPass} type='text' placeholder="User's password"/>
         </div>
-
+        <div className='button-close'>
+          <button type='button' onClick={closeForm} className='btn btn-outline-danger btn-outline-danger-my'>Close form</button>
+        </div>
       </div>
+
+
+      <div className="registration_buttons">
+        <button type='button' onClick={clickHandler}>Регистрация</button>
+        <button type='button' onClick={singIn}>Sign In</button>
+        <button type='button' onClick={clearStorage}>Sign out</button>
+        {/*<button type='button' onClick={closeForm} className='btn btn-outline-danger'>Close form</button>*/}
+      </div>
+
     </form>
   );
 };

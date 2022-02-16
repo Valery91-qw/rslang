@@ -16,6 +16,7 @@
     cursor: pointer;
 }
 .home-icons:hover svg path {
+    transition-duration: 2s;
     fill: red;
 }
 .home-buttons {
@@ -24,10 +25,15 @@
 .header-navigation {
     display: flex;
     flex-direction: row;
+    transition-duration: 2s;
 }
 .header-navigation__item a {
     text-decoration: none;
     font-weight: bold;
     color: white;
     margin-left: 1vw;
+}
+.header-navigation__item:hover a {
+    color: red;
+    transition-duration: 2s;
 }
