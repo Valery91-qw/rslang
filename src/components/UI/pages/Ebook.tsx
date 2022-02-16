@@ -1,11 +1,11 @@
 import React from 'react';
 import CardsList from '../card/CardsList';
+import classes from './css/Ebooks.module.css';
 
 
 const Ebook = () => {
   return (
-    <div>
-      <h1>E-book</h1>
+    <div className={classes.Ebooks}>
       <CardsList />
     </div>
   );

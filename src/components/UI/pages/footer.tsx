@@ -60,7 +60,9 @@ const Footer: React.FC = () => {
         </div>
         <div className="footer-link">© 2022</div>
         <div className="footer-link">
-          <p>App developers:</p>
+          <div className="footer-link__dev">
+            <p>App developers:</p>
+          </div>
           <div className="footer-link__dev">
             <ul>
               <li className="footer-link__dev-item">
