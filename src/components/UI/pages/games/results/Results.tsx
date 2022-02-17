@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './results.module.css';
 import { RootStoreType } from '../../../../../bll/store';
-import { MatchesWord } from '../../../../../bll/results/resultState';
+import { MatchesWord } from '../../../../../bll/results/resultsState';
 import { removeResults } from '../../../../../bll/results/resultsActions';
 import resultsConstants from './results.constants';
 

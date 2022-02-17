@@ -8,7 +8,6 @@ import wordAPI from '../../../../../dal/wordAPI/wordAPI';
 import { WordAPIType } from '../../../../../dal/wordAPI/wordAPI.type';
 import Results from '../results/Results';
 import { addWordToResult } from '../../../../../bll/results/resultsActions';
-import Preloader from '../../../preloader/Preloader';
 
 interface SprintType {
   lvl?: number
@@ -79,16 +78,17 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
         <Timer handlerAfter={finishGame} />
       </div>
       {
-        oneWord && twoWord && !isLoad
+        oneWord && twoWord
           ? (
             <DisplayedCard
               englishWord={oneWord}
               translateWord={twoWord}
               deleteWord={deleteWord}
               increaseScore={increaseScore}
+              isLoad={isLoad}
             />
           )
-          : <Preloader />
+          : <></>
       }
       {
         finish && isShow
