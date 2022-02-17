@@ -7,8 +7,8 @@ export default function resultsReducer(
   switch (action.type) {
     case 'addWordToStatistic':
       return { ...state, statistic: [...state.statistic, action.word] };
-    case "removeResults":
-      return {...state, statistic: []}
+    case 'removeResults':
+      return { ...state, statistic: [] };
     default: return state;
   }
 }

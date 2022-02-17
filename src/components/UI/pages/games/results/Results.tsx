@@ -1,8 +1,9 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './results.module.css';
 import { RootStoreType } from '../../../../../bll/store';
 import { MatchesWord } from '../../../../../bll/results/resultState';
+import { removeResults } from '../../../../../bll/results/resultsActions';
 
 interface IResults {
   handleClose: () => void
@@ -10,12 +11,17 @@ interface IResults {
 }
 
 const Results: React.FC<IResults> = ({ handleClose, isShow }) => {
+  const dispatch = useDispatch();
   const matchesWord = useSelector<RootStoreType, Array<MatchesWord>>(
     (state) => state.results.statistic,
   );
   const isShowClass = isShow ? 'modal-show' : 'modal-hidden';
 
-
+  useEffect(() => {
+    return () => {
+      dispatch(removeResults());
+    };
+  }, [dispatch]);
 
   return (
     <div className={`${styles.modal} ${isShowClass}`}>
