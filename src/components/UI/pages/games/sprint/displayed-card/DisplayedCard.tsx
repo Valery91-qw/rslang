@@ -45,10 +45,10 @@ const DisplayedCard: React.FC<IDisplayedCard> = ({
       <span>{englishWord.word}</span>
       <span>{translateWord.wordTranslate}</span>
       <div className={styles.controls}>
-        <button className={styles.button} type="button" disabled={isLoad} onClick={isTrue}>
+        <button className={styles.button} disabled={isLoad} type="button" onClick={isTrue}>
           True
         </button>
-        <button className={styles.button} type="button" disabled={isLoad} onClick={isFalse}>
+        <button className={styles.button} disabled={isLoad} type="button" onClick={isFalse}>
           False
         </button>
       </div>

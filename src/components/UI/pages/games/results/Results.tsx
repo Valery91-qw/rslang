@@ -1,26 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './results.module.css';
-
-export type MatchesWord = {
-  word: string,
-  translate: string,
-  isGuessed: boolean,
-  id: string,
-};
+import { RootStoreType } from '../../../../../bll/store';
+import { MatchesWord } from '../../../../../bll/results/resultsState';
+import { removeResults } from '../../../../../bll/results/resultsActions';
+import resultsConstants from './results.constants';
 
 interface IResults {
   handleClose: () => void
   isShow: boolean
-  matchesWord: Array<MatchesWord>
 }
 
-const Results: React.FC<IResults> = ({ handleClose, isShow, matchesWord }) => {
-  const isShowClass = isShow ? 'modal-show' : 'modal-hidden';
+const Results: React.FC<IResults> = ({ handleClose, isShow }) => {
+  const dispatch = useDispatch();
+  const matchesWord = useSelector<RootStoreType, Array<MatchesWord>>(
+    (state) => state.results.statistic,
+  );
+  const isShowClass = isShow ? styles.modalShow : styles.modalHidden;
+
+  useEffect(() => {
+    return () => {
+      dispatch(removeResults());
+    };
+  }, [dispatch]);
 
   return (
     <div className={`${styles.modal} ${isShowClass}`}>
       <div className={styles.modalMain}>
-        <button type="button" onClick={handleClose} className={styles.closeButton}> </button>
+        <button
+          type="button"
+          onClick={handleClose}
+          className={styles.closeButton}
+        >
+          he
+        </button>
         {
                 matchesWord.map((el) => {
                   return (
@@ -32,7 +45,13 @@ const Results: React.FC<IResults> = ({ handleClose, isShow, matchesWord }) => {
                     >
                       <span>{el.word}</span>
                       <span>{el.translate}</span>
-                      <span>{el.isGuessed ? 'correct' : 'incorrect'}</span>
+                      <span>
+                        {
+                          el.isGuessed
+                            ? resultsConstants.DisplayedResult.correct
+                            : resultsConstants.DisplayedResult.incorrect
+                        }
+                      </span>
                     </div>
                   );
                 })

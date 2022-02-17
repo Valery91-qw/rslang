@@ -67,11 +67,11 @@
   background-color: #FFFFFF;
 }
 
-.modal-show {
+.modalShow {
   display: block;
 }
 
-.modal-hidden {
+.modalHidden {
   display: none;
 }
 

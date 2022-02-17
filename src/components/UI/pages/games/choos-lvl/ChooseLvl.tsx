@@ -16,7 +16,7 @@ const ChooseLvl: React.FC<ChooseLvlType> = ({ children }) => {
   const handleChange = (event: React.ChangeEvent<HTMLDivElement>) => {
     const target = event.target as HTMLInputElement;
     setDisable(false);
-    setLvl(+target.value);
+    setLvl(Number(target.value));
   };
 
   const handleClick = () => {

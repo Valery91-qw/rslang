@@ -1,23 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './timer.module.css';
-
-const totalSeconds = 60;
+import timerConstant from './timer.constant';
 
 type TimerType = {
   handlerAfter: () => void
 };
 
 const Timer: React.FC<TimerType> = ({ handlerAfter }) => {
-  const [time, setTime] = useState<number>(totalSeconds);
+  const [time, setTime] = useState<number>(timerConstant.totalSeconds);
   const timerRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
-    if (time !== 0) {
+    if (time !== timerConstant.end) {
       timerRef.current = setInterval(() => {
-        setTime((currentTime) => currentTime - 1);
-      }, 1000);
+        setTime((currentTime) => currentTime - timerConstant.step);
+      }, timerConstant.timer);
     }
-    if (time === 0) {
+    if (time === timerConstant.end) {
       handlerAfter();
     }
     return () => {
