@@ -1,6 +1,6 @@
 .footer {
-    height: 15vh;
-    min-height: 70px;
+    /*height: 5vh;*/
+    min-height: 50px;
     justify-self: end;
     display: flex;
     width: 100%;
@@ -29,7 +29,7 @@
 .footer-link {
     display: flex;
     flex-direction: row;
-    font-family: Gilroy;
+    /*font-family: Gilroy;*/
     font-size: 2.5vh;
     font-style: normal;
     font-weight: 500;
@@ -44,13 +44,14 @@
     transition: all 0.8s ease-in;
 }
 .footer-link li {
-    margin: 0 0 1vh 0;
+    margin: 0;
 }
 .footer-link__dev-item:hover a {
     color: red
 }
 .footer-link__dev {
-    padding-top: 3vh;
+    height: 8vh;
+    padding-top: 0.6vh;
     display: flex;
     flex-direction: row;
 }

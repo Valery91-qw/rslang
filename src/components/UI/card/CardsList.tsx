@@ -14,14 +14,20 @@ const CardsList:React.FC = () => {
   const [oneWord, SetOneWord] = useState<IWord>(wordListEx[0]);
 
   const group = 0;
-  const page = 0;
+  const page = 10;
+
+  useEffect(() => {
+    getWords();
+    // setWordList(typeof wordList === 'undefined'? wordListEx: wordList);
+    console.log(oneWord);
+  }, []);
 
   // useEffect(() => {
-  //  getWords();
   //   // setWordList(typeof wordList === 'undefined'? wordListEx: wordList);
   //   console.log(oneWord);
   //
-  // }, []);
+  // }, [oneWord]);
+
 
   const getWords = async () => {
     try {
@@ -37,16 +43,15 @@ const CardsList:React.FC = () => {
 
   return (
     <div className={classes.CardList}>
-      {/*{wordList.map((el:IWord) => {*/}
-      {/*  <Card key={el.id} oneWord={el}/>*/}
-      {/*})*/}
-      {/*}*/}
+      {wordList.map((el:IWord) => {
+       return <Card key={el.id} oneWord={el}/>
+      })}
       {/*<Card key={typeof oneWord?.id === 'undefined'? null:  oneWord.id} oneWord={typeof oneWord === 'undefined'? wordListEx[0]: oneWord} />*/}
-      <Card key={wordListEx[0].id} oneWord={wordListEx[0]} />
-      <Card key={wordListEx[1].id} oneWord={wordListEx[1]} />
-      <Card key={wordListEx[2].id} oneWord={wordListEx[2]} />
-      <Card key={wordListEx[3].id} oneWord={wordListEx[3]} />
-      <Card key={wordListEx[4].id} oneWord={wordListEx[4]} />
+      {/*<Card key={wordListEx[0].id} oneWord={wordListEx[0]} />*/}
+      {/*<Card key={wordListEx[1].id} oneWord={wordListEx[1]} />*/}
+      {/*<Card key={wordListEx[2].id} oneWord={wordListEx[2]} />*/}
+      {/*<Card key={wordListEx[3].id} oneWord={wordListEx[3]} />*/}
+      {/*<Card key={wordListEx[4].id} oneWord={wordListEx[4]} />*/}
     </div>
   );
 };

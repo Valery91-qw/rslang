@@ -7,7 +7,7 @@ import UsersForm from '../form/UsersForm';
 const header:React.FC = () => {
   const [formCorrect, setFormCorrect] = useState<string>();
   useEffect(() => {
-    console.log('Go-oo!');
+    // console.log('Go-oo!');
     setFormCorrect('UserForm');
   }, []);
 
@@ -21,12 +21,12 @@ const header:React.FC = () => {
       <HeaderIcons />
       <div className='header-navigation'>
 
-        <div className="header-navigation__item">
-          <Link to="/">Main</Link>
-        </div>
-        <div className="header-navigation__item">
-          <Link to="authorize">Authorize</Link>
-        </div>
+        {/*<div className="header-navigation__item">*/}
+        {/*  <Link to="/">Main</Link>*/}
+        {/*</div>*/}
+        {/*<div className="header-navigation__item">*/}
+        {/*  <Link to="authorize">Authorize</Link>*/}
+        {/*</div>*/}
         <div className="header-navigation__item">
           <Link to="ebook">Ebook</Link>
         </div>

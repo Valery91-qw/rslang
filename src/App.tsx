@@ -8,13 +8,13 @@ import Router from './router/Router';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <div className="wrapper">
-        <Header />
-        <div className="main">
+
+        {/*<Header />*/}
+
           <Router />
-        </div>
-        <Footer />
-      </div>
+
+        {/*<Footer />*/}
+
     </div>
   );
 };

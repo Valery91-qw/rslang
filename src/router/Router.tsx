@@ -5,6 +5,7 @@ import Games from '../components/UI/pages/games/Games';
 import ChooseLvl from '../components/UI/pages/games/choos-lvl/ChooseLvl';
 import MainPage from '../components/UI/pages/MainPage';
 import Ebook from '../components/UI/pages/Ebook';
+import Statistic from '../components/UI/pages/Statistic';
 
 const Router: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const Router: React.FC = () => {
           <Route path="sprint" element={<ChooseLvl><Sprint /></ChooseLvl>} />
           <Route path="audioChallenge" element={<div>Audio challenge</div>} />
         </Route>
-        <Route path="statistic" element={<div>Statistic</div>} />
+        <Route path="statistic" element={<Statistic />} />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
