@@ -4,8 +4,8 @@ const end = 0;
 const step = 1;
 
 export default {
-    totalSeconds,
-    timer,
-    end,
-    step,
-}
+  totalSeconds,
+  timer,
+  end,
+  step,
+};

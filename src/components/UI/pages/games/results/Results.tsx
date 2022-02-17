@@ -4,6 +4,7 @@ import styles from './results.module.css';
 import { RootStoreType } from '../../../../../bll/store';
 import { MatchesWord } from '../../../../../bll/results/resultState';
 import { removeResults } from '../../../../../bll/results/resultsActions';
+import resultsConstants from './results.constants';
 
 interface IResults {
   handleClose: () => void
@@ -15,7 +16,7 @@ const Results: React.FC<IResults> = ({ handleClose, isShow }) => {
   const matchesWord = useSelector<RootStoreType, Array<MatchesWord>>(
     (state) => state.results.statistic,
   );
-  const isShowClass = isShow ? 'modal-show' : 'modal-hidden';
+  const isShowClass = isShow ? styles.modalShow : styles.modalHidden;
 
   useEffect(() => {
     return () => {
@@ -26,7 +27,13 @@ const Results: React.FC<IResults> = ({ handleClose, isShow }) => {
   return (
     <div className={`${styles.modal} ${isShowClass}`}>
       <div className={styles.modalMain}>
-        <button type="button" onClick={handleClose} className={styles.closeButton}> </button>
+        <button
+          type="button"
+          onClick={handleClose}
+          className={styles.closeButton}
+        >
+          he
+        </button>
         {
                 matchesWord.map((el) => {
                   return (
@@ -38,7 +45,13 @@ const Results: React.FC<IResults> = ({ handleClose, isShow }) => {
                     >
                       <span>{el.word}</span>
                       <span>{el.translate}</span>
-                      <span>{el.isGuessed ? 'correct' : 'incorrect'}</span>
+                      <span>
+                        {
+                          el.isGuessed
+                            ? resultsConstants.DisplayedResult.correct
+                            : resultsConstants.DisplayedResult.incorrect
+                        }
+                      </span>
                     </div>
                   );
                 })

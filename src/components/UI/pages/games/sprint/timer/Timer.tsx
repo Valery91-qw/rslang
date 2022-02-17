@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './timer.module.css';
-import timerConstant from "./timer.constant";
+import timerConstant from './timer.constant';
 
 type TimerType = {
   handlerAfter: () => void
