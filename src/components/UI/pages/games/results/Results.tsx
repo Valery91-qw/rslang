@@ -1,21 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styles from './results.module.css';
-
-export type MatchesWord = {
-  word: string,
-  translate: string,
-  isGuessed: boolean,
-  id: string,
-};
+import { RootStoreType } from '../../../../../bll/store';
+import { MatchesWord } from '../../../../../bll/results/resultState';
 
 interface IResults {
   handleClose: () => void
   isShow: boolean
-  matchesWord: Array<MatchesWord>
 }
 
-const Results: React.FC<IResults> = ({ handleClose, isShow, matchesWord }) => {
+const Results: React.FC<IResults> = ({ handleClose, isShow }) => {
+  const matchesWord = useSelector<RootStoreType, Array<MatchesWord>>(
+    (state) => state.results.statistic,
+  );
   const isShowClass = isShow ? 'modal-show' : 'modal-hidden';
+
+
 
   return (
     <div className={`${styles.modal} ${isShowClass}`}>

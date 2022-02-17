@@ -1,23 +1,25 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styles from './sprint.module.css';
 import DisplayedCard from './displayed-card/DisplayedCard';
 import Timer from './timer/Timer';
 import wordAPI from '../../../../../dal/wordAPI/wordAPI';
 import { WordAPIType } from '../../../../../dal/wordAPI/wordAPI.type';
-import Results, { MatchesWord } from '../results/Results';
+import Results from '../results/Results';
+import {addWordToResult, removeResults} from '../../../../../bll/results/resultsActions';
 
 interface SprintType {
   lvl?: number
 }
 
 const Sprint: React.FC<SprintType> = ({ lvl }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [currentResult, setCurrentResult] = useState<number>(0);
   const [words, setWords] = useState<Array<WordAPIType>>();
   const [oneWord, setOneWord] = useState<WordAPIType>();
   const [twoWord, setTwoWord] = useState<WordAPIType>();
-  const [statistic, setStatistic] = useState<Array<MatchesWord>>([]);
   const [isLoad, setIsLoad] = useState<boolean>(false);
   const [isShow, setShow] = useState<boolean>(false);
   const [finish, setFinish] = useState<boolean>(false);
@@ -34,9 +36,9 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
   const deleteWord = (id: string, isGuessed: boolean) => {
     const word = words?.find((el) => el.id === id);
     if (!word) return;
-    setStatistic([...statistic, {
+    dispatch(addWordToResult({
       word: word.word, translate: word.wordTranslate, id: word.id, isGuessed,
-    }]);
+    }));
     setWords(words?.filter((el) => el !== word));
   };
 
@@ -90,7 +92,7 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
       }
       {
         finish && isShow
-          ? <Results matchesWord={statistic} isShow={isShow} handleClose={closeModal} />
+          ? <Results isShow={isShow} handleClose={closeModal} />
           : <></>
       }
     </div>
