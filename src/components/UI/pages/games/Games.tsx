@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './games.module.css';
-// import run from './assets/running-run-svgrepo-com.svg';
-// import listen from './assets/person-face-listening-music-with-auriculars-svgrepo-com.svg';
-import listen from './assets/pngaudio.png';
-import run from './assets/rocket.png';
-import Header from '../header';
+import run from './assets/running-run-svgrepo-com.svg';
+import listen from './assets/person-face-listening-music-with-auriculars-svgrepo-com.svg';
+// import listen from './assets/pngaudio.png';
+// import run from './assets/rocket.png';
 import Footer from '../footer';
+import Header from '../Header';
 
 const runIcon = {
   backgroundImage: `url(${run})`,
@@ -18,7 +18,7 @@ const listenIcon = {
 
 const Games: React.FC = () => {
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <Header />
       <h1>Games</h1>
       <div className="main">

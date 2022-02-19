@@ -32,7 +32,7 @@ const Results: React.FC<IResults> = ({ handleClose, isShow }) => {
           onClick={handleClose}
           className={styles.closeButton}
         >
-
+          d
         </button>
         {
                 matchesWord.map((el) => {
