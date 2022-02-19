@@ -1,9 +1,15 @@
 import React from 'react';
 import Footer from './footer';
-import './css/MainPage.css';
 import Header from './Header';
+import './css/MainPage.css'
+import wordAPI from '../../../dal/wordAPI/wordAPI';
 
 const MainPage:React.FC = () => {
+  useEffect(() => {
+    wordAPI.getWords();
+    console.log('oneWord - It works');
+  }, []);
+
   return (
     <div className="wrapper">
       <Header />
