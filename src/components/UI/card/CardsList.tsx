@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from './Card';
-import { IWord } from '../../types/types';
+import { IWord } from '../../../types/types';
 import wordListEx from './userExample';
 import { API_URL } from '../../../constants';
 import classes from './CardList.module.css';

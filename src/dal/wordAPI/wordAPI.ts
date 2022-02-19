@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { WordAPIType } from './wordAPI.type';
+import { IWord } from '../../types/types';
 
 const instance = axios.create({
   baseURL: 'https://rslang03.herokuapp.com',
 });
 
 const wordAPI = {
-  getWords(group = 0, page = 0): Promise<Array<WordAPIType>> {
-    return instance.get<Array<WordAPIType>>('/words', {
+  getWords(group = 0, page = 0): Promise<Array<IWord>> {
+    return instance.get<Array<IWord>>('/words', {
       params: {
         group,
         page,

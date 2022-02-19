@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styles from './displayedCard.module.css';
 import Indicator from './indicator/Indicator';
-import { WordAPIType } from '../../../../../../dal/wordAPI/wordAPI.type';
+import { IWord } from '../../../../../../types/types';
 
 interface IDisplayedCard {
-  englishWord: WordAPIType,
-  translateWord: WordAPIType,
+  englishWord: IWord,
+  translateWord: IWord,
   deleteWord: (is: string, isGuessed: boolean) => void
   increaseScore: () => void
   isLoad: boolean

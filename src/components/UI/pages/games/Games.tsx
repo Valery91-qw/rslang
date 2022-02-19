@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './games.module.css';
-import run from './assets/running-run-svgrepo-com.svg';
-import listen from './assets/person-face-listening-music-with-auriculars-svgrepo-com.svg';
+// import run from './assets/running-run-svgrepo-com.svg';
+// import listen from './assets/person-face-listening-music-with-auriculars-svgrepo-com.svg';
+import listen from './assets/pngaudio.png';
+import run from './assets/rocket.png';
+import Header from '../header';
+import Footer from '../footer';
 
 const runIcon = {
   backgroundImage: `url(${run})`,
@@ -14,9 +18,22 @@ const listenIcon = {
 
 const Games: React.FC = () => {
   return (
-    <div className={styles.wrapper}>
-      <Link to="sprint" className={styles.link} style={runIcon} />
-      <Link to="audioChallenge" className={styles.link} style={listenIcon} />
+    <div className='wrapper'>
+      <Header />
+      <h1>Games</h1>
+      <div className="main">
+        <div className={styles.wrapper}>
+          <div className={styles.Sprint}>
+            <h2 className={styles.headerSprint}>Sprint</h2>
+            <Link to="sprint" className={styles.link} style={runIcon} />
+          </div>
+          <div className={styles.Audio}>
+            <h2 className={styles.headerAudio}>Audio challenge</h2>
+            <Link to="audioChallenge" className={styles.link} style={listenIcon} />
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

@@ -11,11 +11,13 @@
   position: fixed;
   padding: 10px;
   width: 50%;
-  max-height: 80%;
-  top:50%;
-  left:50%;
+  max-height: 82%;
+  top: 57vh;
+  left: 50%;
   text-align: end;
   transform: translate(-50%,-50%);
+  transition-duration: 1s;
+  border-radius: 2vh;
   background: linear-gradient(270deg, #130B3C 0%, #02030A 57.63%);
   overflow-y: auto;
 }
@@ -83,7 +85,7 @@
 }
 
 .incorrect {
-  background-color: rgba(221, 11, 86, 20%);
+  background-color: rgba(221, 11, 86, 0.76);
 }
 
 .fieldWrapper > span {

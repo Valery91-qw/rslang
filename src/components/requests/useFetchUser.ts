@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { IUser, IUserID } from '../types/types';
+import { IUser, IUserID } from '../../types/types';
 
 
 // const useFetchUser = async (e:React.MouseEvent<HTMLButtonElement>) => {
