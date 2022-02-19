@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './games.module.css';
-import run from './assets/running-run-svgrepo-com.svg';
-import listen from './assets/person-face-listening-music-with-auriculars-svgrepo-com.svg';
-// import listen from './assets/pngaudio.png';
-// import run from './assets/rocket.png';
+// import run from './assets/running-run-svgrepo-com.svg';
+// import listen from './assets/person-face-listening-music-with-auriculars-svgrepo-com.svg';
+import listen from './assets/pngaudio.png';
+import run from './assets/rocket.png';
 import Footer from '../footer';
 import Header from '../Header';
 
