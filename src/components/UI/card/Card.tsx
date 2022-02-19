@@ -2,7 +2,7 @@ import React from 'react';
 import { API_URL, FILES_URL, IMG_URL, SVG_URL } from '../../../constants';
 import './Card.css';
 import classes from './Card.module.css';
-import { IWord } from '../../types/types';
+import { IWord } from '../../../types/types';
 
 interface ICardProps {
   oneWord:IWord | undefined;

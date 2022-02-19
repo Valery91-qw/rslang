@@ -11,7 +11,6 @@ const MainPage:React.FC = () => {
       <Header />
         <div className="main">
           <h1>Hello World</h1>
-          <DropUp />
         </div>
       <Footer />
     </div>

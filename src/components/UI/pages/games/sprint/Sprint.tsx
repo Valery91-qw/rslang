@@ -5,9 +5,9 @@ import styles from './sprint.module.css';
 import DisplayedCard from './displayed-card/DisplayedCard';
 import Timer from './timer/Timer';
 import wordAPI from '../../../../../dal/wordAPI/wordAPI';
-import { WordAPIType } from '../../../../../dal/wordAPI/wordAPI.type';
 import Results from '../results/Results';
 import { addWordToResult } from '../../../../../bll/results/resultsActions';
+import { IWord } from '../../../../../types/types';
 
 interface SprintType {
   lvl?: number
@@ -17,9 +17,9 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [currentResult, setCurrentResult] = useState<number>(0);
-  const [words, setWords] = useState<Array<WordAPIType>>();
-  const [oneWord, setOneWord] = useState<WordAPIType>();
-  const [twoWord, setTwoWord] = useState<WordAPIType>();
+  const [words, setWords] = useState<Array<IWord>>();
+  const [oneWord, setOneWord] = useState<IWord>();
+  const [twoWord, setTwoWord] = useState<IWord>();
   const [isLoad, setIsLoad] = useState<boolean>(false);
   const [isShow, setShow] = useState<boolean>(false);
   const [finish, setFinish] = useState<boolean>(false);
@@ -72,8 +72,8 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <h3>
-          Current result
-          {currentResult}
+          Текущий результат:
+          {' ' + currentResult}
         </h3>
         <Timer handlerAfter={finishGame} />
       </div>

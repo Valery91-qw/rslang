@@ -1,0 +1,9 @@
+.btnOutlineDangerMy {
+  width: 14vh;
+  height: 5vh;
+  padding: 0;
+  background-color: rgba(49, 19, 75, 0.53);
+  border-radius: 12.5vh;
+  border: 2px solid red;
+  z-index: 100;
+}

@@ -1,4 +1,4 @@
-import { IWord } from '../../types/types';
+import { IWord } from '../../../types/types';
 
 const wordListEx:IWord[] = [
   {

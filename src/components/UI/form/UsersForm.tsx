@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import './UserForm.css'
 import axios from 'axios';
 import { API_URL } from '../../../constants';
-import { IUserInfo } from '../../types/types';
+import { IUserInfo } from '../../../types/types';
 
 
 interface IUserFormsProps {
