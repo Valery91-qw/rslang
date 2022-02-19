@@ -73,7 +73,7 @@ const Sprint: React.FC<SprintType> = ({ lvl }) => {
       <div className={styles.header}>
         <h3>
           Текущий результат:
-          {' ' + currentResult}
+          {` ${currentResult}`}
         </h3>
         <Timer handlerAfter={finishGame} />
       </div>

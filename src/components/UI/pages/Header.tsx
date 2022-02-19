@@ -5,38 +5,43 @@ import classes from './css/header.module.css';
 import HeaderIcons from './header-icons/HeaderIcons';
 import UsersForm from '../form/UsersForm';
 
-const header:React.FC = () => {
+const Header:React.FC = () => {
   const [formCorrect, setFormCorrect] = useState<string>();
   useEffect(() => {
     setFormCorrect('UserForm');
   }, []);
 
-  const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log('MouseEvent');
+  const clickHandler = () => {
     setFormCorrect('UserForm active');
   };
 
   return (
-    <div className='header'>
+    <div className="header">
       <HeaderIcons />
-      <div className='header-navigation'>
+      <div className="header-navigation">
         <div className="header-navigation__item">
-          <Link to="ebook">Ebook</Link>
+          <Link to="/ebook">Ebook</Link>
         </div>
         <div className="header-navigation__item">
-          <Link to="games">Games</Link>
+          <Link to="/games">Games</Link>
         </div>
         <div className="header-navigation__item">
-          <Link to="statistic">Statistic</Link>
+          <Link to="/statistic">Statistic</Link>
         </div>
 
       </div>
-      <div className='home-buttons'>
-        <button className={'btn btn-outline-danger ' + classes.btnOutlineDangerMy} onClick={clickHandler} >Войти</button>
+      <div className="home-buttons">
+        <button
+          type="button"
+          className={`btn btn-outline-danger ${classes.btnOutlineDangerMy}`}
+          onClick={clickHandler}
+        >
+          Войти
+        </button>
       </div>
-      <UsersForm className={ formCorrect === undefined ? '' : formCorrect} setClassName={setFormCorrect}/>
+      <UsersForm className={formCorrect === undefined ? '' : formCorrect} setClassName={setFormCorrect} />
     </div>
   );
 };
 
-export default header;
+export default Header;
