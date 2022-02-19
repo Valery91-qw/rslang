@@ -6,6 +6,7 @@ import ChooseLvl from '../components/UI/pages/games/choos-lvl/ChooseLvl';
 import MainPage from '../components/UI/pages/MainPage';
 import Ebook from '../components/UI/pages/Ebook';
 import Statistic from '../components/UI/pages/Statistic';
+import AudioChallenge from '../components/UI/pages/games/audio-challenge/AudioChallenge';
 
 const Router: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const Router: React.FC = () => {
         <Route path="games">
           <Route index element={<Games />} />
           <Route path="sprint" element={<ChooseLvl><Sprint /></ChooseLvl>} />
-          <Route path="audioChallenge" element={<div>Audio challenge</div>} />
+          <Route path="audioChallenge" element={<AudioChallenge />} />
         </Route>
         <Route path="statistic" element={<Statistic />} />
       </Route>

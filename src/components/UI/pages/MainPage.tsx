@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from './footer';
 import Header from './Header';
-import './css/MainPage.css'
+import './css/MainPage.css';
 import wordAPI from '../../../dal/wordAPI/wordAPI';
 
 const MainPage:React.FC = () => {
   useEffect(() => {
     wordAPI.getWords();
-    console.log('oneWord - It works');
   }, []);
 
   return (
