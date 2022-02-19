@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Header from './header';
+import React from 'react';
 import Footer from './footer';
+import Header from './Header';
 import './css/MainPage.css'
 import wordAPI from '../../../dal/wordAPI/wordAPI';
 
@@ -13,9 +13,9 @@ const MainPage:React.FC = () => {
   return (
     <div className="wrapper">
       <Header />
-        <div className="main">
-          <h1>Hello World</h1>
-        </div>
+      <div className="main">
+        <h1>Hello World</h1>
+      </div>
       <Footer />
     </div>
   );
