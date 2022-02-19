@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Header from './header';
 import Footer from './footer';
 import './css/MainPage.css'
-import DropUp from './EbookFooter/DropUp';
+import wordAPI from '../../../dal/wordAPI/wordAPI';
 
 const MainPage:React.FC = () => {
+  useEffect(() => {
+    wordAPI.getWords();
+    console.log('oneWord - It works');
+  }, []);
 
   return (
     <div className="wrapper">
