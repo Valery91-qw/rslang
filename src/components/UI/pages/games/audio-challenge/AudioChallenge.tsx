@@ -12,34 +12,43 @@ interface IAudioChallenge {
 const wordAmount = 4;
 
 const AudioChallenge: React.FC<IAudioChallenge> = ({ lvl }) => {
-  const [amountAttempt] = useState<number>(20);
+  const [amountAttempt, setAmountAttempt] = useState<number>(20);
   const [words, setWords] = useState<Array<IWord>>();
-
   const [currentWordsInGame, setCurrentWordsInGame] = useState<Array<IWord>>([]);
 
   useEffect(() => {
-    wordAPI.getWords(lvl, 0)
-      .then((res) => setWords(res));
-  }, [lvl]);
+    if (!words) {
+      wordAPI.getWords(lvl, Math.floor(Math.random() * 20))
+        .then((res) => setWords(res));
+    }
+  }, [lvl, words]);
 
   useEffect(() => {
     if (words && words.length && currentWordsInGame.length < wordAmount) {
       for (let i = 0; i < words.length; i += 1) {
         const word = words[Math.floor(Math.random() * words?.length)];
         if (currentWordsInGame.find((el) => el.id === word.id)) {
-          return;
+          setCurrentWordsInGame(currentWordsInGame.filter((el) => el.id !== word.id));
+        } else {
+          setCurrentWordsInGame([...currentWordsInGame, word]);
         }
-        setCurrentWordsInGame([...currentWordsInGame, word]);
       }
     }
   }, [words, words?.length, currentWordsInGame.length, currentWordsInGame]);
+
+  const next = (id: string, isCorrect: boolean) => {
+    setAmountAttempt((cur) => cur - 1);
+    const word = currentWordsInGame.filter((el) => el.id !== id);
+    setCurrentWordsInGame(word);
+    console.log(isCorrect);
+  };
 
   return (
     <div className={styles.challengeWrapper}>
       <Attempt amountAttempt={amountAttempt} />
       {
         currentWordsInGame.length === wordAmount
-          ? <ChallengeGame words={currentWordsInGame} />
+          ? <ChallengeGame words={currentWordsInGame} next={next} />
           : <></>
       }
     </div>
