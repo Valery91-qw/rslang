@@ -30,15 +30,7 @@ const Card:React.FC<ICardProps> = ({ oneWord }) => {
   if (typeof oneWord === undefined) {
     oneWord = firstWord;
   }
-  // let textExample0 = '';
-  // if (typeof oneWord?.textExample === 'undefined') {
-  //   textExample0 = '';
-  // } else {
-  //   textExample0 = oneWord.textExample;
-  // }
-  // typeof oneWord?.textMeaning === 'undefined'? '' : oneWord.textMeaning;
 
-  // console.log(token);
   async function playSound() {
     const playSoundFirst:HTMLAudioElement = document.getElementById(`playerFirst${oneWord?.id}`) as HTMLAudioElement;
     playSoundFirst.addEventListener('ended', (event) => playSoundTwo());

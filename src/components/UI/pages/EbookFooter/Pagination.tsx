@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Pagination.css';
 import classes from './Pagination.module.css';
-import MyInput from './MyInput';
 
 interface IProps {
   getPage: (num:number) => void;

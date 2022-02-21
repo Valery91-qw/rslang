@@ -7,7 +7,6 @@ import wordAPI from '../../../dal/wordAPI/wordAPI';
 const MainPage:React.FC = () => {
   useEffect(() => {
     wordAPI.getWords();
-    // console.log('oneWord - It works');
   }, []);
 
   return (
