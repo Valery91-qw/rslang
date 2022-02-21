@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Footer from './footer';
 import Header from './Header';
 import './css/MainPage.css'

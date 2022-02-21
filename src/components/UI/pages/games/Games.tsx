@@ -25,11 +25,11 @@ const Games: React.FC = () => {
         <div className={styles.wrapper}>
           <div className={styles.Sprint}>
             <h2 className={styles.headerSprint}>Sprint</h2>
-            <Link to="sprint" className={styles.link} style={runIcon} />
+            <Link to="/rslang/games/sprint" className={styles.link} style={runIcon} />
           </div>
           <div className={styles.Audio}>
             <h2 className={styles.headerAudio}>Audio challenge</h2>
-            <Link to="audioChallenge" className={styles.link} style={listenIcon} />
+            <Link to=" /rslang/games/audioChallenge" className={styles.link} style={listenIcon} />
           </div>
         </div>
       </div>

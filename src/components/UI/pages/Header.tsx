@@ -20,13 +20,13 @@ const Header:React.FC = () => {
       <HeaderIcons />
       <div className="header-navigation">
         <div className="header-navigation__item">
-          <Link to="/ebook">Ebook</Link>
+          <Link to="/rslang/ebook">Ebook</Link>
         </div>
         <div className="header-navigation__item">
-          <Link to="/games">Games</Link>
+          <Link to="/rslang/games">Games</Link>
         </div>
         <div className="header-navigation__item">
-          <Link to="/statistic">Statistic</Link>
+          <Link to="/rslang/statistic">Statistic</Link>
         </div>
 
       </div>

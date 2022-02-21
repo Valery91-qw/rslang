@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const HeaderIcons = () => {
   return (
     <div className='home-icons'>
-      <Link to="/">
+      <Link to="/rslang/">
         <div className="home-icon__wrapper">
           <div className="home-img">
             <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">

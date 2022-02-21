@@ -10,18 +10,18 @@ import Statistic from '../components/UI/pages/Statistic';
 const Router: React.FC = () => {
   return (
     <Routes>
-      <Route path="/">
+      <Route path="/rslang">
         <Route index element={<MainPage />} />
-        <Route path="authorize" element={<div>Athorisation</div>} />
-        <Route path="ebook" element={<Ebook />} />
-        <Route path="games">
+        <Route path="/rslang/authorize" element={<div>Athorisation</div>} />
+        <Route path="/rslang/ebook" element={<Ebook />} />
+        <Route path="/rslang/games">
           <Route index element={<Games />} />
-          <Route path="sprint" element={<ChooseLvl><Sprint /></ChooseLvl>} />
-          <Route path="audioChallenge" element={<div>Audio challenge</div>} />
+          <Route path="/rslang/games/sprint" element={<ChooseLvl><Sprint /></ChooseLvl>} />
+          <Route path="/rslang/games/audioChallenge" element={<div>Audio challenge</div>} />
         </Route>
-        <Route path="statistic" element={<Statistic />} />
+        <Route path="/rslang/statistic" element={<Statistic />} />
       </Route>
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<Navigate to="/rslang" />} />
     </Routes>
   );
 };
