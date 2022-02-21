@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
         <div className="footer-link">© 2022</div>
         <div className="footer-link">
           <div className="footer-link__dev">
-            <p>App developers:</p>
+            <p>Разработчики:</p>
           </div>
           <div className="footer-link__dev">
             <ul>

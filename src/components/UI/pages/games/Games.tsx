@@ -5,7 +5,7 @@ import styles from './games.module.css';
 // import listen from './assets/person-face-listening-music-with-auriculars-svgrepo-com.svg';
 import listen from './assets/pngaudio.png';
 import run from './assets/rocket.png';
-import Footer from '../footer';
+import Footer from '../Footer';
 import Header from '../Header';
 
 const runIcon = {

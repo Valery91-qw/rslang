@@ -4,6 +4,7 @@ import './css/header.css';
 import classes from './css/header.module.css';
 import HeaderIcons from './header-icons/HeaderIcons';
 import UsersForm from '../form/UsersForm';
+// import './games/assets/enter_key.svg'
 
 const Header:React.FC = () => {
   const [formCorrect, setFormCorrect] = useState<string>();
@@ -20,13 +21,13 @@ const Header:React.FC = () => {
       <HeaderIcons />
       <div className="header-navigation">
         <div className="header-navigation__item">
-          <Link to="/ebook">Ebook</Link>
+          <Link to="/ebook">Учебник</Link>
         </div>
         <div className="header-navigation__item">
-          <Link to="/games">Games</Link>
+          <Link to="/games">Игры</Link>
         </div>
         <div className="header-navigation__item">
-          <Link to="/statistic">Statistic</Link>
+          <Link to="/statistic">Статистика</Link>
         </div>
 
       </div>

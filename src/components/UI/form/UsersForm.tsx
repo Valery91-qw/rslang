@@ -17,10 +17,10 @@ const UsersForm:React.FC<IUserFormsProps> = ({className, setClassName}) => {
   console.log(className);
 
   const clickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log('inputRef.current?.value');
-    console.log(inputRefName.current?.value);
-    console.log(inputRefEmail.current?.value);
-    console.log(inputRefPass.current?.value);
+    // console.log('inputRef.current?.value');
+    // console.log(inputRefName.current?.value);
+    // console.log(inputRefEmail.current?.value);
+    // console.log(inputRefPass.current?.value);
 
     localStorage.name = inputRefName.current?.value === null ? '': inputRefName.current?.value;
     localStorage.email = inputRefEmail.current?.value === null ? '': inputRefEmail.current?.value;
@@ -36,12 +36,13 @@ const UsersForm:React.FC<IUserFormsProps> = ({className, setClassName}) => {
       console.log(response.data);
       localStorage.token = response.data.token;
       localStorage.userID = response.data.userId;
+      await singIn();
     } catch ( e ) {
       alert(e);
     }
   };
 
-  const singIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const singIn = async () => {
     console.log('Вход getSignIn');
     try {
       const response = await axios.post<IUserInfo>(API_URL + '/signin',
@@ -76,16 +77,21 @@ const UsersForm:React.FC<IUserFormsProps> = ({className, setClassName}) => {
           <input ref={inputRefPass} type='text' placeholder="User's password"/>
         </div>
         <div className='button-close'>
-          <button type='button' onClick={closeForm} className='btn btn-outline-danger btn-outline-danger-my'>Close form</button>
+          <button
+            type='button'
+            onClick={closeForm}
+            className='btn btn-outline-danger btn-outline-danger-my'
+          >
+            Закрыить
+          </button>
         </div>
       </div>
 
 
       <div className="registration_buttons">
         <button type='button' onClick={clickHandler}>Регистрация</button>
-        <button type='button' onClick={singIn}>Sign In</button>
-        <button type='button' onClick={clearStorage}>Sign out</button>
-        {/*<button type='button' onClick={closeForm} className='btn btn-outline-danger'>Close form</button>*/}
+        {/*<button type='button' onClick={singIn}>Sign In</button>*/}
+        <button type='button' onClick={clearStorage}>Выйти</button>
       </div>
 
     </form>

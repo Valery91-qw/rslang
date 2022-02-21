@@ -7,36 +7,57 @@ interface IProps {
 }
 
 const DiagramToday:React.FC<IProps> = (props) => {
-  const percentWordUp = Math.round(props.rightWords /
-    props.newWords * 100);
+  const percentWordUp = Math.round(props.rightWords
+    / props.newWords * 100);
   const percentWordDown = 100 - percentWordUp;
-
 
   return (
     <div className={classes.ToDay}>
       <div className={classes.HeaderDiagram}>
         <h3 className={classes.HeaderStatFont}>
-          Изучено слов: {props.newWords}
+          Изучено слов:
+          {' '}
+          {props.newWords}
         </h3>
       </div>
 
       <div className={classes.Diagram}>
-        <svg viewBox="0 0 42 42" className={'donut' + classes.Donut}>
+        <svg viewBox="0 0 42 42" className={`donut${classes.Donut}`}>
           <circle
-            className="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff">
-          </circle>
+            className="donut-hole"
+            cx="21"
+            cy="21"
+            r="15.91549430918954"
+            fill="#fff"
+          />
           <circle
-            className="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="red" strokeWidth="3">
-          </circle>
+            className="donut-ring"
+            cx="21"
+            cy="21"
+            r="15.91549430918954"
+            fill="transparent"
+            stroke="red"
+            strokeWidth="3"
+          />
           <circle
-            className="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="green" strokeWidth="3"
-            strokeDasharray={percentWordUp + ' ' + percentWordDown} strokeDashoffset="25">
-          </circle>
+            className="donut-segment"
+            cx="21"
+            cy="21"
+            r="15.91549430918954"
+            fill="transparent"
+            stroke="green"
+            strokeWidth="3"
+            strokeDasharray={`${percentWordUp} ${percentWordDown}`}
+            strokeDashoffset="25"
+          />
         </svg>
       </div>
       <div className={classes.InsideDiagram}>
-        <h3 className={classes.HeaderStatFontRound}>правильно (%)<pre></pre>
-          {props.rightWords}</h3>
+        <h3 className={classes.HeaderStatFontRound}>
+          правильно (%)
+          <pre />
+          {props.rightWords}
+        </h3>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 src/components/UI/pages/Ebook.tsx
-src/components/UI/pages/footer.tsx
+src/components/UI/pages/Footer.tsx
 src/components/UI/pages/NotFound.tsx
 src/components/UI/pages/header-icons/*
 src/components/UI/pages/css/*

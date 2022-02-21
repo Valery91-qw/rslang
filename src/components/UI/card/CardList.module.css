@@ -1,3 +1,7 @@
+.CardListWrapper {
+  display: flex;
+  flex-direction: column;
+}
 .CardList {
   display: flex;
   padding: 1.5vw;
@@ -6,4 +10,7 @@
   flex-wrap: wrap;
   /*column-gap: 1vw;*/
   row-gap: 2vw;
+}
+.AddBlock {
+  height: 10vh;
 }
