@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import Footer from './footer';
+import Footer from './Footer';
 import './css/Statistic.css';
 import classes from './css/Statistic.module.css';
 import GameCard from './statisticCards/GameCard';

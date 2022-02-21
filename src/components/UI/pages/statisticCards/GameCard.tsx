@@ -10,22 +10,22 @@ interface IProps {
 
 const GameCard:React.FC<IProps> = (props) => {
   return (
-    <div className={'card ' + classes.StatCard}>
-      <div className={'card-header ' + classes.CardTitle}>
+    <div className={`card ${classes.StatCard}`}>
+      <div className={`card-header ${classes.CardTitle}`}>
         {props.header}
       </div>
-      <div className={'card-body ' + classes.cardBody}>
+      <div className={`card-body ${classes.cardBody}`}>
         <div className={classes.CardBodyItem}>
-          <h3 className={'card-title ' + classes.CardBodyFont}>Изучено слов:</h3>
-          <h3 className={'card-title ' + classes.CardBodyFont}>{props.wordsStat}</h3>
+          <h3 className={`card-title ${classes.CardBodyFont}`}>Изучено слов:</h3>
+          <h3 className={`card-title ${classes.CardBodyFont}`}>{props.wordsStat}</h3>
         </div>
         <div className={classes.CardBodyItem}>
-          <h3 className={'card-title ' + classes.CardBodyFont}>Правильно (%)</h3>
-          <h3 className={'card-title ' + classes.CardBodyFont}>{props.rightWords}</h3>
+          <h3 className={`card-title ${classes.CardBodyFont}`}>Правильно (%)</h3>
+          <h3 className={`card-title ${classes.CardBodyFont}`}>{props.rightWords}</h3>
         </div>
         <div className={classes.CardBodyItem}>
-          <h3 className={'card-title ' + classes.CardBodyFont}>Самая длинная серия:</h3>
-          <h3 className={'card-title ' + classes.CardBodyFont}>{props.lengthSeries}</h3>
+          <h3 className={`card-title ${classes.CardBodyFont}`}>Самая длинная серия:</h3>
+          <h3 className={`card-title ${classes.CardBodyFont}`}>{props.lengthSeries}</h3>
         </div>
       </div>
     </div>
