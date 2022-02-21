@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IWord } from '../../../../../../types/types';
-import { FILES_URL } from '../../../../../../constants';
+import { FILES_URL, SVG_URL } from '../../../../../../constants';
+import styles from './challengeGame.module.css';
 
 interface IChallengeGame {
   words: Array<IWord>
@@ -38,16 +39,19 @@ const ChallengeGame: React.FC<IChallengeGame> = ({ words, next }) => {
   };
 
   return (
-    <div>
-      <h3><button type="button" onClick={play}>play</button></h3>
+    <div className={styles.wrapper}>
+      <button className={`${'btn-sound-my'} ${styles.btnSoundMy}`} type="button" onClick={play}>
+        <img src={`${SVG_URL}loudspeaker.svg`} alt="" />
+      </button>
       <audio id="audio">
         <source src={FILES_URL + englishWord.audio} />
         <track kind="captions" />
       </audio>
-      <div>
+      <div className={styles.answers}>
         {words.map((word) => {
           return (
             <button
+              className={styles.button}
               type="button"
               key={word.id}
               id={word.id}

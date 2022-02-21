@@ -18,7 +18,7 @@ const Router: React.FC = () => {
         <Route path="games">
           <Route index element={<Games />} />
           <Route path="sprint" element={<ChooseLvl><Sprint /></ChooseLvl>} />
-          <Route path="audioChallenge" element={<AudioChallenge />} />
+          <Route path="audioChallenge" element={<ChooseLvl><AudioChallenge /></ChooseLvl>} />
         </Route>
         <Route path="statistic" element={<Statistic />} />
       </Route>
