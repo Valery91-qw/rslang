@@ -9,11 +9,11 @@ import Results from '../results/Results';
 import { addWordToResult } from '../../../../../bll/results/resultsActions';
 import { IWord } from '../../../../../types/types';
 
-interface SprintType {
+interface ISprint {
   lvl?: number
 }
 
-const Sprint: React.FC<SprintType> = ({ lvl }) => {
+const Sprint: React.FC<ISprint> = ({ lvl }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [currentResult, setCurrentResult] = useState<number>(0);
