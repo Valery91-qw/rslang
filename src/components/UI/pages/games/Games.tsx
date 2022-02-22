@@ -29,7 +29,7 @@ const Games: React.FC = () => {
           </div>
           <div className={styles.Audio}>
             <h2 className={styles.headerAudio}>Audio challenge</h2>
-            <Link to=" /rslang/games/audioChallenge" className={styles.link} style={listenIcon} />
+            <Link to="/rslang/games/audioChallenge" className={styles.link} style={listenIcon} />
           </div>
         </div>
       </div>
