@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './EbookFooter.css';
-import classes from './EbookFooter.module.css'
-import HeaderIcons from '../header-icons/HeaderIcons';
-import Pagination from './Pagination';
-import DropUp from './DropUp';
 import { IPage } from '../../../../types/types';
+import classes from '../EbookFooter/EbookFooter.module.css';
+import HeaderIcons from '../header-icons/HeaderIcons';
 import { Link } from 'react-router-dom';
+import Pagination from '../EbookFooter/Pagination';
+import DropUp from '../EbookFooter/DropUp';
 
 interface IProps {
   getPageFromFooter: (nums:IPage) => void;
 }
 
-const EbookFooter:React.FC<IProps> = ({getPageFromFooter}) => {
+const LearningBookFooter:React.FC<IProps> = ({getPageFromFooter}) => {
   const [groupFromFooter, setGroupFromFooter] = useState<number>();
   const [pageFromFooter, setPageFromFooter] = useState<number>();
 
@@ -44,7 +43,7 @@ const EbookFooter:React.FC<IProps> = ({getPageFromFooter}) => {
           className='btn btn-danger'
         >
           <div className={classes.ButtonLinkWrapper}>
-            <Link className={'text-link ' + classes.ButtonLink} to="/rslang/learning-book">Словарь</Link>
+            <Link className={'text-link ' + classes.ButtonLink} to="/rslang/ebook">Учебник</Link>
           </div>
         </button>
         <Pagination getPage={getPageFunc} />
@@ -54,4 +53,4 @@ const EbookFooter:React.FC<IProps> = ({getPageFromFooter}) => {
   );
 };
 
-export default EbookFooter;
+export default LearningBookFooter;

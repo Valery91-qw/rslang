@@ -1,12 +1,14 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import './css/MainPage.css';
 import wordAPI from '../../../dal/wordAPI/wordAPI';
+import usersAPI from '../../../dal/wordAPI/usersAPI';
 
 const MainPage:React.FC = () => {
   useEffect(() => {
     wordAPI.getWords();
+    usersAPI.singIn();
   }, []);
 
   return (

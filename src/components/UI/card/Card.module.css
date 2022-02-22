@@ -3,10 +3,20 @@
   min-height: 40vw;
   color: black;
   border-radius: 2vh;
-  ont-family: Rubik,sans-serif;
+  font-family: Rubik,sans-serif;
   border: 2px solid red;
   background-color: rgb(248, 221, 236);
   box-shadow: 1vw 1vw 1vw rgba(253, 66, 237, 0.56);
+}
+.CardLearning {
+  width: 30vw;
+  min-height: 40vw;
+  color: black;
+  border-radius: 2vh;
+  font-family: Rubik,sans-serif;
+  border: 2px solid red;
+  background-color: rgb(248, 240, 221);
+  box-shadow: 1vw 1vw 1vw rgba(253, 222, 66, 0.56);
 }
 .cardImgMy {
   min-width: 100%;
@@ -41,7 +51,7 @@
   background-image: linear-gradient(rgb(248, 221, 236) 20%, transparent, rgb(248, 221, 236));
   opacity: 0.95;
 }
-.exmpl {
+.example {
   /*overflow: hidden;*/
   display: flex;
   justify-content: center;

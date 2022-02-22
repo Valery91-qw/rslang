@@ -9,4 +9,5 @@ src/components/types/*
 src/components/requests/*
 src/components/UI/pages/EbookFooter/*
 src/components/UI/pages/Statistic.tsx
+src/components/UI/pages/*
 src/components/UI/pages/statisticCards/*

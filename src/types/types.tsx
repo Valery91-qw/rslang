@@ -35,3 +35,13 @@ export interface IPage {
   page: number;
   group: number;
 }
+export interface IUserWord {
+  id: string;
+  wordId: string;
+  difficulty: string;
+  optional: IOptionWords;
+}
+export interface IOptionWords {
+  optionKey: string;
+}
+

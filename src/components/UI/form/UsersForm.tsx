@@ -39,6 +39,8 @@ const UsersForm:React.FC<IUserFormsProps> = ({className, setClassName}) => {
       await singIn();
     } catch ( e ) {
       alert(e);
+    } finally {
+      closeForm(e);
     }
   };
 
