@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
-import { IPage, IWord } from '../../../types/types';
+import { IPage, IUserWord, IWord } from '../../../types/types';
 import classes from './CardList.module.css';
 import wordAPI from '../../../dal/wordAPI/wordAPI';
+import usersAPI from '../../../dal/wordAPI/usersAPI';
 
 interface IProps {
   nums:IPage,
 }
 const CardsList:React.FC<IProps> = (props) => {
   const [wordList, setWordList] = useState<IWord[]>([]);
+  const [userList, setUserList] = useState<IUserWord[]>([]);
   console.log(props.nums.group + '??==' + props.nums.page);
+  // const
+
+  useEffect(() => {
+    passPageToLocaleStorage(props.nums.page, props.nums.group)
+    console.log(props.nums.group + '=useEffect CardLis getWordAPI=' + props.nums.page);
+    wordAPI.getWords(props.nums.group, props.nums.page).then((res) => setWordList(res));
+    usersAPI.getUserList().then((res) => setUserList);
+  }, [props.nums.group, props.nums.page]);
 
   const passPageToLocaleStorage = (page:number, group:number) => {
     localStorage.setItem('page', String(page));
@@ -17,17 +27,11 @@ const CardsList:React.FC<IProps> = (props) => {
     console.log('localStorage');
   };
 
-  useEffect(() => {
-    passPageToLocaleStorage(props.nums.page, props.nums.group)
-    console.log(props.nums.group + '=useEffect CardLis getWordAPI=' + props.nums.page);
-    wordAPI.getWords(props.nums.group, props.nums.page).then((res) => setWordList(res));
-  }, [props.nums.group, props.nums.page]);
-
   return (
     <div className={classes.CardListWrapper}>
       <div className={classes.CardList}>
         {wordList.map((el:IWord) => {
-          return <Card key={el.id} oneWord={el}/>
+          return <Card key={el.id} oneWord={el} userList={userList}/>
         })}
       </div>
         <div className={classes.AddBlock}>

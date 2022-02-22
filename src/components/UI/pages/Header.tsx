@@ -21,7 +21,7 @@ const Header:React.FC = () => {
       <HeaderIcons />
       <div className="header-navigation">
         <div className="header-navigation__item">
-          <Link to="/rslang/ebook">Ebook</Link>
+          <Link to="/rslang/ebook">Учебник</Link>
         </div>
         <div className="header-navigation__item">
           <Link to="/rslang/games">Игры</Link>

@@ -1,56 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-  API_URL, FILES_URL, IMG_URL, SVG_URL,
+  FILES_URL, firstWord, SVG_URL,
 } from '../../../constants';
 import './Card.css';
 import classes from './Card.module.css';
-import { IWord } from '../../../types/types';
+import { IUserWord, IWord } from '../../../types/types';
+import usersAPI from '../../../dal/wordAPI/usersAPI';
 
 interface ICardProps {
   oneWord:IWord | undefined;
+  userList:IUserWord[];
 }
+let cardColor:string;
 
 const Card:React.FC<ICardProps> = ({ oneWord }) => {
-  const firstWord:IWord = {
-    id:	'',
-    group: 0,
-    page:	0,
-    word:	'',
-    image:	'',
-    audio:	'',
-    audioMeaning:	'',
-    audioExample:	'',
-    textMeaning:	'',
-    textExample:	'',
-    transcription:	'',
-    wordTranslate:	'',
-    textMeaningTranslate:	'',
-    textExampleTranslate:	'',
-  };
-  if (typeof oneWord === undefined) {
+  const [isLearning, setIsLearning] = useState<boolean>(false);
+  if (typeof oneWord === 'undefined') {
     oneWord = firstWord;
   }
-
+  useEffect(() => {
+    cardColor = isLearning? classes.CardLearning: classes.Card;
+    console.log(`change Color ${isLearning} = ${cardColor}`);
+  },[isLearning])
   async function playSound() {
     const playSoundFirst:HTMLAudioElement = document.getElementById(`playerFirst${oneWord?.id}`) as HTMLAudioElement;
-    playSoundFirst.addEventListener('ended', (event) => playSoundTwo());
+    playSoundFirst.addEventListener('ended', () => playSoundTwo());
     await playSoundFirst.play();
   }
-
   async function playSoundTwo() {
     const playSoundSecond:HTMLAudioElement = document.getElementById(`playerSecond${oneWord?.id}`) as HTMLAudioElement;
-    playSoundSecond.addEventListener('ended', (event) => playSoundThree());
+    playSoundSecond.addEventListener('ended', () => playSoundThree());
     await playSoundSecond.play();
   }
-
   async function playSoundThree() {
     const playSoundThird:HTMLAudioElement = document.getElementById(`playSoundThird${oneWord?.id}`) as HTMLAudioElement;
     await playSoundThird.play();
+    const createUserWord = () => {
+    }
   }
 
-  // @ts-ignore
   return (
-    <div className={`card ${classes.Card}`}>
+    <div className={`card ${cardColor}`}>
       <audio id={`playerFirst${oneWord?.id}`}>
         <source src={FILES_URL + oneWord?.audio} />
       </audio>
@@ -68,7 +58,7 @@ const Card:React.FC<ICardProps> = ({ oneWord }) => {
         </div>
       </div>
       <div />
-      <div className="img-wrapper exmpl">
+      <div className="img-wrapper example">
         <div className="gradient">
           <img src={FILES_URL + oneWord?.image} className={`card-img-top gradient${classes.CardImgMy}`} alt="..." />
         </div>
@@ -82,8 +72,14 @@ const Card:React.FC<ICardProps> = ({ oneWord }) => {
         </div>
       </div>
       <div className="card-footer">
-        <a href="#" className="btn btn-primary btn-primary-my">!</a>
-        <h6>Card footer</h6>
+        <button onClick={() => {
+          // usersAPI.singIn();
+          // usersAPI.getUserList();
+          usersAPI.getUserWord(oneWord?.id!);
+          setIsLearning(true);
+          // learningWordAPI.createUserWords(typeof oneWord?.id === 'undefined' ? '' : oneWord?.id)
+        }} className="btn btn-primary btn-primary-my">!</button>
+        <h6>Выбирайте сложность</h6>
       </div>
     </div>
   );

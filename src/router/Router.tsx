@@ -6,6 +6,7 @@ import ChooseLvl from '../components/UI/pages/games/choos-lvl/ChooseLvl';
 import MainPage from '../components/UI/pages/MainPage';
 import Ebook from '../components/UI/pages/Ebook';
 import Statistic from '../components/UI/pages/Statistic';
+import LearningBook from '../components/UI/pages/LearningBook';
 
 const Router: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Router: React.FC = () => {
         <Route index element={<MainPage />} />
         <Route path="/rslang/authorize" element={<div>Athorisation</div>} />
         <Route path="/rslang/ebook" element={<Ebook />} />
+        <Route path="/rslang/learning-book" element={<LearningBook />} />
         <Route path="/rslang/games">
           <Route index element={<Games />} />
           <Route path="/rslang/games/sprint" element={<ChooseLvl><Sprint /></ChooseLvl>} />

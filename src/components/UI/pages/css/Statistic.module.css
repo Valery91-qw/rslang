@@ -75,11 +75,11 @@
 }
 .CardTitle {
   padding: 2vh;
-  font-size: 3.5vh;
+  font-size: 3vh;
   font-weight: 500;
 }
 .CardBodyFont {
-  font-size: 2.5vw;
+  font-size: 2.8vh;
 }
 .CardBodyItem {
   display: flex;

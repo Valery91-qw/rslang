@@ -18,8 +18,8 @@ const Ebook:React.FC = () => {
   };
 
   useEffect(() => {
-    const pageLocal = pageSet?.page? pageSet.page: 0;
-    const groupLocal = pageSet?.group? pageSet.group : 0;
+    // const pageLocal = pageSet?.page? pageSet.page: 0;
+    // const groupLocal = pageSet?.group? pageSet.group : 0;
     console.log(pageSet.group + ' useEffect of Ebook ' + pageSet.page)
   },[pageSet]);
 

@@ -6,3 +6,18 @@
   justify-self: end;
   width: 100%;
 }
+.ButtonLink {
+  text-decoration: none;
+  color: white;
+  font-size: 2vh;
+  line-height: 1.8vh;
+  text-align: center;
+}
+.ButtonLinkWrapper {
+  width: 7vh;
+  margin: 0;
+  padding: 0 0 0.2vh 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
