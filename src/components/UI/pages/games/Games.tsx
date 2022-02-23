@@ -21,7 +21,7 @@ const Games: React.FC = () => {
     <div className="wrapper">
       <Header />
       <h1>Games</h1>
-      <div className="main">
+      <div className={styles.mainGames}>
         <div className={styles.wrapper}>
           <div className={styles.Sprint}>
             <h2 className={styles.headerSprint}>Sprint</h2>
