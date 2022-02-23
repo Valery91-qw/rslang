@@ -1,0 +1,14 @@
+.arrow-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow-right img {
+  height: 80%;
+  width: 80%;
+}
+.img-valera {
+  width: 24vh;
+  float: left;
+  margin-right: 1vw;
+}
