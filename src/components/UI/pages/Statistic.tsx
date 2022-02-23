@@ -15,8 +15,13 @@ const Statistic:React.FC = () => {
     statisticsAPI.getStatistics()
         .then(res => {
           if(res) {
-            setSprintStatistic(res.optional.sprint)
-            setAudioChallengeStatistic(res.optional.audioChallenge);
+              if(res.optional && res.optional.sprint && res.optional.audioChallenge) {
+                  setSprintStatistic(res.optional.sprint)
+                  setAudioChallengeStatistic(res.optional.audioChallenge);
+              } else {
+                  setSprintStatistic({seria: 0, rightAnswers: 0});
+                  setAudioChallengeStatistic({seria: 0, rightAnswers: 0});
+              }
           }
         })
   }, [])
