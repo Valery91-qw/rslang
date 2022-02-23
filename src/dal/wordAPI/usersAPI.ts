@@ -7,7 +7,7 @@ const instance = axios.create({
 });
 
 const usersAPI = {
-  getUserList(): Promise<Array<IUserWord[]>> {
+  getUserList(): Promise<Array<IUserWord>> {
     const userIDs = localStorage.getItem('userID')!;
     let userToken = '';
     userToken = localStorage.getItem('token')!;
@@ -19,14 +19,14 @@ const usersAPI = {
     const configReq = {
       headers: { Authorization: `Bearer ${userToken}` },
     };
-
     // const bodyParameters = {
     //   key: "value"
     // };
     return instance.get<Array<IUserWord>>(PathWords, configReq)
       .then((res) => {
-        const result = res.data[0].wordId;
-        console.log(result);
+        const result = res.data;
+        console.log('result is!');
+        return result;
       })
       .catch((err) => err.message);
   },
