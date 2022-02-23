@@ -21,12 +21,15 @@ const statisticsAPI = {
       .get<{ id: string, LearnWords: number, optional: ServerEntity }>(
       `/users/${localStorage.getItem('userID')}/statistics`,
     )
-      .then((res) => res.data)
+      .then((res) => {
+        console.log(res);
+        return res.data
+      })
       .catch((err) => {
         console.log(err);
       });
   },
-  async setStatistics(game: string, optionsForGame: { seria: number , rightAnswers: number}) {
+  async setStatistics(game: string, optionsForGame: { seria: number , rightAnswers: number} = {seria: 0, rightAnswers: 0}) {
     let oldStatistic;
     const result = await this.getStatistics();
     if (result) oldStatistic = result.optional;
@@ -52,6 +55,25 @@ const statisticsAPI = {
         console.log(res);
       });
   },
+  createStatistic() {
+    return instance.put(`/users/${localStorage.getItem('userID')}/statistics`, {
+      learnedWords: 0,
+      optional: {
+        sprint: {
+          seria: 0,
+          rightAnswers: 0,
+        },
+        audioChallenge: {
+          seria: 0,
+          rightAnswers: 0,
+        }
+      },
+    }).then((res) => {
+      console.log(res);
+    }).catch((res) => {
+      console.log(res);
+    })
+  }
 };
 
 export default statisticsAPI;

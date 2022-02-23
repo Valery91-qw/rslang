@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import './UserForm.css'
 import axios from 'axios';
 import { API_URL } from '../../../constants';
 import { IUserInfo } from '../../../types/types';
+import statisticsAPI from "../../../dal/wordAPI/statisticsAPI";
 
 interface IUserFormsProps {
   className:string;
@@ -68,6 +69,8 @@ const UsersForm:React.FC<IUserFormsProps> = ({className, setClassName}) => {
   const closeForm = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClassName('UserForm');
     console.log('classNameForm*******', setClassName);
+    statisticsAPI.createStatistic()
+        .then();
   }
 
   return (
