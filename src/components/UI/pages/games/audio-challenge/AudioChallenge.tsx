@@ -88,7 +88,7 @@ const AudioChallenge: React.FC<IAudioChallenge> = ({ lvl }) => {
       }
       {
         finish && isShow
-          ? <Results isShow={isShow} handleClose={closeModal} />
+          ? <Results isShow={isShow} handleClose={closeModal} kindOfGame="audioChallenge" />
           : <></>
       }
     </div>

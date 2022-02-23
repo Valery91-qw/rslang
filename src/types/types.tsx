@@ -44,4 +44,3 @@ export interface IUserWord {
 export interface IOptionWords {
   optionKey: string;
 }
-
