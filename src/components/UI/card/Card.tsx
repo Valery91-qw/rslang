@@ -5,7 +5,6 @@ import {
 import './Card.css';
 import classes from './Card.module.css';
 import { IUserWord, IWord } from '../../../types/types';
-import usersAPI from '../../../dal/wordAPI/usersAPI';
 
 interface ICardProps {
   oneWord:IWord | undefined;
@@ -13,11 +12,27 @@ interface ICardProps {
 }
 let cardColor:string;
 
-const Card:React.FC<ICardProps> = ({ oneWord }) => {
+const Card:React.FC<ICardProps> = ({ oneWord, userList}) => {
   const [isLearning, setIsLearning] = useState<boolean>(false);
+  let isLearningShort = false;
   if (typeof oneWord === 'undefined') {
     oneWord = firstWord;
   }
+  const checkLearningID = ():void => {
+    const isShort = userList.map((el) => {
+      return el.wordId;
+    })
+    isLearningShort = isShort.includes(oneWord?.id!);
+    if (isLearningShort) {
+      cardColor = classes.CardLearning;
+      // setIsLearning(isLearningShort);
+    }
+    console.log('Card is learning =>', oneWord?.id, '=', isLearningShort);
+    console.log(isShort);
+    // console.log(userList);
+  }
+  checkLearningID();
+
   useEffect(() => {
     cardColor = isLearning? classes.CardLearning: classes.Card;
     console.log(`change Color ${isLearning} = ${cardColor}`);
@@ -35,8 +50,8 @@ const Card:React.FC<ICardProps> = ({ oneWord }) => {
   async function playSoundThree() {
     const playSoundThird:HTMLAudioElement = document.getElementById(`playSoundThird${oneWord?.id}`) as HTMLAudioElement;
     await playSoundThird.play();
-    const createUserWord = () => {
-    }
+    // const createUserWord = () => {
+    // }
   }
 
   return (
@@ -75,7 +90,7 @@ const Card:React.FC<ICardProps> = ({ oneWord }) => {
         <button onClick={() => {
           // usersAPI.singIn();
           // usersAPI.getUserList();
-          usersAPI.getUserWord(oneWord?.id!);
+          // usersAPI.getUserWord(oneWord?.id!);
           setIsLearning(true);
           // learningWordAPI.createUserWords(typeof oneWord?.id === 'undefined' ? '' : oneWord?.id)
         }} className="btn btn-primary btn-primary-my">!</button>

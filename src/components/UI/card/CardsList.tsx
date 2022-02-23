@@ -18,13 +18,16 @@ const CardsList:React.FC<IProps> = (props) => {
     passPageToLocaleStorage(props.nums.page, props.nums.group)
     console.log(props.nums.group + '=useEffect CardLis getWordAPI=' + props.nums.page);
     wordAPI.getWords(props.nums.group, props.nums.page).then((res) => setWordList(res));
-    usersAPI.getUserList().then((res) => setUserList);
+    usersAPI.getUserList().then((res) => {
+      setUserList(res)
+    });
+    console.log(userList);
   }, [props.nums.group, props.nums.page]);
 
   const passPageToLocaleStorage = (page:number, group:number) => {
     localStorage.setItem('page', String(page));
     localStorage.setItem('group', String(group));
-    console.log('localStorage');
+    console.log('localStorage - established');
   };
 
   return (

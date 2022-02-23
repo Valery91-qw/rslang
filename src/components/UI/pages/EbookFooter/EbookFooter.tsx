@@ -17,10 +17,8 @@ const EbookFooter:React.FC<IProps> = ({getPageFromFooter}) => {
 
   useEffect(() => {
     const nums:IPage = {
-      // group: groupFromFooter? groupFromFooter : Number(localStorage.getItem('group')),
-      group: typeof groupFromFooter !== 'undefined'? groupFromFooter: 0,
-      // page: typeof pageFromFooter !== 'undefined'? pageFromFooter: Number(localStorage.getItem('page')),
-      page: typeof pageFromFooter !== 'undefined'? pageFromFooter: 0,
+      group: typeof groupFromFooter !== 'undefined'? groupFromFooter: Number(localStorage.getItem('group')),
+      page: typeof pageFromFooter !== 'undefined'? pageFromFooter: Number(localStorage.getItem('page')),
     };
     console.log(nums.group + ' G++P ' + nums.page + ' = getPageFromFooter')
     getPageFromFooter(nums);
