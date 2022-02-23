@@ -30,29 +30,6 @@ const usersAPI = {
       })
       .catch((err) => err.message);
   },
-  setUserWord(): Promise<Array<IUserWord>> {
-    const userIDs = localStorage.getItem('userID')!;
-    let userToken = '';
-    userToken = localStorage.getItem('token')!;
-
-    let PathWords = '';
-    PathWords = PathWords.concat(
-      '/users/', userIDs, '/words',
-    );
-    const configReq = {
-      headers: { Authorization: `Bearer ${userToken}` },
-    };
-    // const bodyParameters = {
-    //   key: "value"
-    // };
-    return instance.get<Array<IUserWord>>(PathWords, configReq)
-      .then((res) => {
-        const result = res.data;
-        console.log('result is!');
-        return result;
-      })
-      .catch((err) => err.message);
-  },
   getUserWord(wordId:string): Promise<Array<IUserWord[]>> {
     const userIDs = localStorage.getItem('userID')!;
     let userToken = '';

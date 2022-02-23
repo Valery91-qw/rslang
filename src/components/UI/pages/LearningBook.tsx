@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './css/LearningBook.css';
 import classes from './css/LearningBook.module.css';
-import CardsList from '../card/CardsList';
 import { IPage } from '../../../types/types';
 import LearningBookFooter from './LearningFooter/LearningBookFooter';
+import CardListLearning from '../card/CardListLearning';
 
 const LearningBook:React.FC = () => {
   const pageSetInit = {
@@ -26,7 +26,8 @@ const LearningBook:React.FC = () => {
   return (
     <div className={classes.EbookWrapper}>
       <div className={classes.Ebooks}>
-        <CardsList nums={pageSet} />
+        {/*<h1>hhhhhhhhh</h1>*/}
+        <CardListLearning nums={pageSet} />
       </div>
       <LearningBookFooter getPageFromFooter={getPage} />
     </div>

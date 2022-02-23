@@ -5,6 +5,8 @@ import {
 import './Card.css';
 import classes from './Card.module.css';
 import { IUserWord, IWord } from '../../../types/types';
+import learningWordAPI from '../../../dal/wordAPI/learninWordAPI';
+import usersAPI from '../../../dal/wordAPI/usersAPI';
 
 interface ICardProps {
   oneWord:IWord | undefined;
@@ -14,18 +16,25 @@ let cardColor:string;
 
 const Card:React.FC<ICardProps> = ({ oneWord, userList}) => {
   const [isLearning, setIsLearning] = useState<boolean>(false);
+  const [userListNew, setUserListNew] = useState<IUserWord[]>(userList);
   let isLearningShort = false;
   if (typeof oneWord === 'undefined') {
     oneWord = firstWord;
   }
+  useEffect(() => {
+
+  },[isLearningShort])
+
   const checkLearningID = ():void => {
-    const isShort = userList.map((el) => {
+    const isShort = userListNew.map((el) => {
       return el.wordId;
     })
     isLearningShort = isShort.includes(oneWord?.id!);
     if (isLearningShort) {
       cardColor = classes.CardLearning;
-      // setIsLearning(isLearningShort);
+      // setIsLearning(true);
+    } else {
+      cardColor = classes.Card;
     }
     console.log('Card is learning =>', oneWord?.id, '=', isLearningShort);
     console.log(isShort);
@@ -33,10 +42,20 @@ const Card:React.FC<ICardProps> = ({ oneWord, userList}) => {
   }
   checkLearningID();
 
-  useEffect(() => {
-    cardColor = isLearning? classes.CardLearning: classes.Card;
-    console.log(`change Color ${isLearning} = ${cardColor}`);
-  },[isLearning])
+  // useEffect(() => {
+  //   cardColor = isLearning? classes.CardLearning: classes.Card;
+  //   console.log(`change Color ${isLearning} = ${cardColor}`);
+  // },[isLearning])
+  const changeStatusCard = () => {
+    learningWordAPI.createUserWord(typeof oneWord?.id === 'undefined' ? '' : oneWord?.id)
+      .then(() => {
+        usersAPI.getUserList()
+          .then((res) => {
+            setUserListNew(res);
+            setIsLearning(true);
+          })
+      })
+  }
   async function playSound() {
     const playSoundFirst:HTMLAudioElement = document.getElementById(`playerFirst${oneWord?.id}`) as HTMLAudioElement;
     playSoundFirst.addEventListener('ended', () => playSoundTwo());
@@ -88,11 +107,17 @@ const Card:React.FC<ICardProps> = ({ oneWord, userList}) => {
       </div>
       <div className="card-footer">
         <button onClick={() => {
-          // usersAPI.singIn();
-          // usersAPI.getUserList();
-          // usersAPI.getUserWord(oneWord?.id!);
-          setIsLearning(true);
-          // learningWordAPI.createUserWords(typeof oneWord?.id === 'undefined' ? '' : oneWord?.id)
+          changeStatusCard();
+
+          // learningWordAPI.createUserWord(typeof oneWord?.id === 'undefined' ? '' : oneWord?.id)
+          //   .then(() => {
+          //     usersAPI.getUserList()
+          //       .then((res) => {
+          //         setUserListNew(res);
+          //         setIsLearning(true);
+          //       })
+          //   })
+
         }} className="btn btn-primary btn-primary-my">!</button>
         <h6>Выбирайте сложность</h6>
       </div>
