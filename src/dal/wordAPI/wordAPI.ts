@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { IWord } from '../../types/types';
+import { API_URL } from '../../constants';
 
 const instance = axios.create({
-  baseURL: 'https://rslang03.herokuapp.com',
+  baseURL: API_URL,
 });
 
 const wordAPI = {

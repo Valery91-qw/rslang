@@ -92,7 +92,7 @@ const Sprint: React.FC<ISprint> = ({ lvl }) => {
       }
       {
         finish && isShow
-          ? <Results isShow={isShow} handleClose={closeModal} />
+          ? <Results isShow={isShow} handleClose={closeModal} kindOfGame="sprint"/>
           : <></>
       }
     </div>

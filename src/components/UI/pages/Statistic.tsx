@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import './css/Statistic.css';
 import classes from './css/Statistic.module.css';
 import GameCard from './statisticCards/GameCard';
 import DiagramToday from './statisticCards/DiagramToday';
+import statisticsAPI from "../../../dal/wordAPI/statisticsAPI";
 
 const Statistic:React.FC = () => {
+  const [sprintStatistic, setSprintStatistic] = useState<{seria: number, rightAnswers: number}>()
+  const [audioChallengeStatistic, setAudioChallengeStatistic] = useState<{seria: number, rightAnswers: number}>()
+
+  useEffect(() => {
+    statisticsAPI.getStatistics()
+        .then(res => {
+          if(res) {
+            setSprintStatistic(res.optional.sprint)
+            setAudioChallengeStatistic(res.optional.audioChallenge);
+          }
+        })
+  }, [])
+
   const statisticInit = {
     totalPerDay: 150,
     correctPerDay: 90,
@@ -25,10 +39,18 @@ const Statistic:React.FC = () => {
           {/*! Cards */}
           <div className={classes.Games}>
             <div className={classes.Sprint}>
-              <GameCard header="СПРИНТ" wordsStat={0} rightWords={0} lengthSeries={0} />
+              <GameCard
+                  header="СПРИНТ"
+                  wordsStat={0}
+                  rightWords={sprintStatistic ? sprintStatistic.rightAnswers : 0}
+                  lengthSeries={sprintStatistic ? sprintStatistic.seria : 0} />
             </div>
             <div className={classes.Audio}>
-              <GameCard header="Аудио челендж" wordsStat={0} rightWords={0} lengthSeries={0} />
+              <GameCard
+                  header="Аудио челендж"
+                  wordsStat={0}
+                  rightWords={audioChallengeStatistic ? audioChallengeStatistic.rightAnswers : 0}
+                  lengthSeries={audioChallengeStatistic ? audioChallengeStatistic.seria : 0} />
             </div>
           </div>
 
