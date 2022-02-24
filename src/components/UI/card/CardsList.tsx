@@ -26,7 +26,7 @@ const CardsList:React.FC<IProps> = (props) => {
           .then((res) => {
           setWordList(result);
           setUserList([...res]);
-          console.log(`setUserList ${res[0].wordId}`)
+          // console.log(`setUserList ${res[0].wordId}`)
       });
     });
     console.log(userList);
@@ -37,8 +37,8 @@ const CardsList:React.FC<IProps> = (props) => {
     console.log(props.nums.group + '=useEffect CardLis getWordAPI=' + props.nums.page);
      usersAPI.getUserList()
        .then((res) => {
-       setUserList([...res]);
-       console.log(`setUserList ${res[0].wordId}`)
+       setUserList(res);
+       // console.log(`setUserList ${res[0].wordId}`)
     });
  console.log(userList);
   }, []);

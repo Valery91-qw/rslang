@@ -4,6 +4,7 @@ import { IPage, IUserWord, IWord } from '../../../types/types';
 import classes from './CardList.module.css';
 import wordAPI from '../../../dal/wordAPI/wordAPI';
 import usersAPI from '../../../dal/wordAPI/usersAPI';
+import Header from '../pages/Header';
 
 interface IProps {
   nums:IPage,
@@ -26,12 +27,6 @@ const CardListLearning:React.FC<IProps> = (props) => {
           .then((res) => {
             setWordList([...result]);
             setUserList([...res]);
-            // setUserList(res);
-            // createArrayWords();
-            console.log(`setUserList ${res[0].wordId}`);
-            // console.log(createIDArray());
-            //  console.log(createArrayWords());
-            // console.log(createIDArray());
             isRender += 1;
           });
       });
@@ -97,11 +92,8 @@ const CardListLearning:React.FC<IProps> = (props) => {
 
   return (
     <div className={classes.CardListWrapper}>
+      <Header />
       <div className={classes.CardList}>
-
-        {/*{wordList.map((el:IWord) => {*/}
-        {/*  return <Card key={el.id} oneWord={el} userList={userList}/>*/}
-        {/*})}*/}
         {createArrayWords().map((el:IWord) => {
           return <Card key={el.id} oneWord={el} userList={userList}/>
         })}

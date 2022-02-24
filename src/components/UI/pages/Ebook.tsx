@@ -3,6 +3,7 @@ import CardsList from '../card/CardsList';
 import classes from './css/Ebooks.module.css';
 import EbookFooter from './EbookFooter/EbookFooter';
 import { IPage } from '../../../types/types';
+import Header from './Header';
 
 const Ebook:React.FC = () => {
   const pageSetInit = {
@@ -23,6 +24,7 @@ const Ebook:React.FC = () => {
 
   return (
     <div className={classes.EbookWrapper}>
+      <Header />
       <div className={classes.Ebooks}>
         <CardsList nums={pageSet} />
       </div>

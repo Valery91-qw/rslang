@@ -42,7 +42,7 @@ const EbookFooter:React.FC<IProps> = ({getPageFromFooter}) => {
           className='btn btn-danger'
         >
           <div className={classes.ButtonLinkWrapper}>
-            <Link className={'text-link ' + classes.ButtonLink} to="/rslang/learning-book">Словарь</Link>
+            <Link className={'text-link ' + classes.ButtonLink} to="/rslang/learning-book">Сложные слова</Link>
           </div>
         </button>
         <Pagination getPage={getPageFunc} />
