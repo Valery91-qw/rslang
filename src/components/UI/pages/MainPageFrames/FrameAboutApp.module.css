@@ -1,0 +1,18 @@
+.AppFrame {
+  width: 50vw;
+  max-height: 80vh;
+  height: 60vh;
+  margin: 5vh 0 0 3vw;
+  padding: 2vh;
+  border: 2px solid red;
+  border-radius: 5vh;
+}
+.ArrowRight {
+  margin: 0 1vw;
+  height: 6vh;
+  width: 6vh;
+  border: 1px solid #dd00ff;
+  border-radius: 50%;
+  background-color: rgba(233, 196, 250, 0.69);
+  /*background-image: url("../games/assets/arrow.png");*/
+}

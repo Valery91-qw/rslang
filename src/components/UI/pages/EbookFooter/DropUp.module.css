@@ -1,0 +1,43 @@
+.Button {
+  width: 12vh;
+  height: 5vh;
+  padding: 0;
+  font-size: 2vh;
+}
+.DropItem {
+  position: relative;
+  text-align: center;
+  width: 8vh;
+  height: 5vh;
+  margin-top: 1vh;
+  padding: 0;
+  background-color: rgb(217, 101, 111);
+  border: 1px solid red;
+  opacity: 0.8;
+  border-radius: 50%;
+  z-index: 1200;
+  cursor: pointer;
+}
+.DropItem1 {
+  /*transform: rotate(10deg);*/
+}
+.DropItem2 {
+  left: -1.5vh;
+}
+.DropItem3 {
+  left: -3.2vh;
+}
+.DropItem4 {
+  left: -4.9vh;
+}
+.DropItem5 {
+  left: -7vh;
+}
+.DropItem6 {
+  left: -9vh;
+}
+.LiItem {
+  width: 12vh;
+  opacity: 1;
+  z-index: 100;
+}

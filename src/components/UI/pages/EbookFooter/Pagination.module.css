@@ -1,0 +1,28 @@
+.NavArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.Pagination {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.InputField {
+  background-color: white;
+  color: red;
+  font-size: 2vh;
+}
+.BtnEnter {
+  width: 4.8vh;
+  height: 4.8vh;
+  background-image: url("../games/assets/enter_key.svg");
+  background-size: cover;
+  color: #dd0b56;
+  border-radius: 15%;
+}

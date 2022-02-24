@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+.answers {
+  margin-top: 10px;
+}
+
+.button {
+  padding: 12px 50px;
+
+  font-family: Open Sans, serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 19px;
+  color: #FFFFFF;
+
+  background: none;
+  border: 2px solid #DD0B56;
+  cursor: pointer;
+  transition: linear 0.1s;
+}
+
+.button:hover {
+  background-color: #DD0B56;
+  box-shadow: 0 0 1px 1px #DD0B56;
+  transition: linear 0.2s;
+}
+
+.btnSoundMy {
+  height: 5vw;
+  width: 5vw;
+  border-radius: 50%;
+  padding: 0;
+  margin: 5px 0;
+  border: 1px solid red;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+}
+
+.btnSoundMy:hover {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.btnSoundMy img {
+  width: 3vw;
+  height: 3vw;
+}

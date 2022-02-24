@@ -1,0 +1,25 @@
+.main-wrapper {
+
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  /*overflow: hidden;*/
+}
+.main h1 {
+  font-size: 3.5vw;
+}
+.main h6 {
+  font-size: calc(0.9vh + 0.8vw);
+}
+.main p {
+  font-size: calc(0.7vh + 0.8vw);
+}
+.arrow-button {
+  /*opacity: 0;*/
+  background: none;
+  border: none;
+  cursor: pointer;
+}

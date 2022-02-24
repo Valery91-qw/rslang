@@ -1,0 +1,14 @@
+.Ebooks {
+  height: 100%;
+  width: 100vw;
+}
+.EbookWrapper {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: url(https://raw.githubusercontent.com/igor2000xp/rslang-asset/main/img/main/bg.jpg);
+  background-repeat: repeat;
+  background-size: 150vw auto;
+  background-position: 50% 20%;
+}
