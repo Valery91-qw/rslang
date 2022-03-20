@@ -1,14 +1,14 @@
-export const resultsState: ResultsStateType = {
+export const resultsState: IResultsState = {
   statistic: [],
 };
 
-export type ResultsStateType = {
-  statistic: Array<MatchesWord>
-};
+export interface IResultsState {
+  statistic: Array<IMatchesWord>
+}
 
-export type MatchesWord = {
+export interface IMatchesWord {
   word: string,
   translate: string,
   isGuessed: boolean,
   id: string,
-};
+}
