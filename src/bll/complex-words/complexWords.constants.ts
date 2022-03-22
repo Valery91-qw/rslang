@@ -1,7 +1,7 @@
 enum ComplexWordsConstants {
-    add_word = 'complexWord/addWord',
-    delete_word = 'complexWord/deleteWord',
-    increase_show_number = 'complexWord/increaseShowNumber',
+    add_word = 'complexWords/addWord',
+    delete_word = 'complexWords/deleteWord',
+    increase_show_number = 'complexWords/increaseShowNumber',
 }
 
 export default ComplexWordsConstants

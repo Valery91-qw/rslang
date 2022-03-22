@@ -1,4 +1,4 @@
-export const ComplexWordsState: IComplexWordsState = {
+export const complexWordsState: IComplexWordsState = {
     complexWords: []
 }
 
