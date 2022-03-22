@@ -4,7 +4,6 @@ import './css/header.css';
 import classes from './css/header.module.css';
 import HeaderIcons from './header-icons/HeaderIcons';
 import UsersForm from '../form/UsersForm';
-// import './games/assets/enter_key.svg'
 
 const Header:React.FC = () => {
   const [formCorrect, setFormCorrect] = useState<string>();

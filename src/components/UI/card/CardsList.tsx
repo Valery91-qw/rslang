@@ -12,7 +12,6 @@ const CardsList:React.FC<IProps> = (props) => {
   const [wordList, setWordList] = useState<IWord[]>([]);
   const [userList, setUserList] = useState<IUserWord[]>([]);
   console.log(props.nums.group + '??==' + props.nums.page);
-  // const
 
   useEffect(() => {
     passPageToLocaleStorage(props.nums.page, props.nums.group)

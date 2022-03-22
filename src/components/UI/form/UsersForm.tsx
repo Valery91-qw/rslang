@@ -1,9 +1,9 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useRef } from 'react';
 import './UserForm.css'
 import axios from 'axios';
 import { API_URL } from '../../../constants';
 import { IUserInfo } from '../../../types/types';
-import statisticsAPI from "../../../dal/wordAPI/statisticsAPI";
+import statisticsAPI from '../../../dal/wordAPI/statisticsAPI';
 
 interface IUserFormsProps {
   className:string;
@@ -18,11 +18,6 @@ const UsersForm:React.FC<IUserFormsProps> = ({className, setClassName}) => {
   console.log(className);
 
   const clickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    // console.log('inputRef.current?.value');
-    // console.log(inputRefName.current?.value);
-    // console.log(inputRefEmail.current?.value);
-    // console.log(inputRefPass.current?.value);
-
     localStorage.name = inputRefName.current?.value === null ? '': inputRefName.current?.value;
     localStorage.email = inputRefEmail.current?.value === null ? '': inputRefEmail.current?.value;
     localStorage.password = inputRefPass.current?.value === null ? '': inputRefPass.current?.value;
@@ -62,7 +57,7 @@ const UsersForm:React.FC<IUserFormsProps> = ({className, setClassName}) => {
     }
   }
 
-  const clearStorage = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const clearStorage = () => {
     localStorage.clear();
   }
 
