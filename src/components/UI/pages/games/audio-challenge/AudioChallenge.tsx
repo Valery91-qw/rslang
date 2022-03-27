@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Attempt from './attempt/Attempt';
 import styles from './audioChallange.module.css';
@@ -8,6 +8,8 @@ import { IWord } from '../../../../../types/types';
 import ChallengeGame from './challenge-game/ChallengeGame';
 import { addWordToResult } from '../../../../../bll/results/resultsActions';
 import Results from '../results/Results';
+import {RootStoreType} from "../../../../../bll/store";
+import {addGameWords} from "../../../../../bll/game/gameActions";
 
 interface IAudioChallenge {
   lvl?: number
@@ -17,7 +19,8 @@ const wordAmount = 4;
 
 const AudioChallenge: React.FC<IAudioChallenge> = ({ lvl }) => {
   const [amountAttempt, setAmountAttempt] = useState<number>(20);
-  const [words, setWords] = useState<Array<IWord>>();
+  // const [words, setWords] = useState<Array<IWord>>();
+  const words = useSelector<RootStoreType, Array<IWord>>(state => state.game.gameWords)
   const [currentWordsInGame, setCurrentWordsInGame] = useState<Array<IWord>>([]);
   const [isShow, setShow] = useState<boolean>(false);
   const [finish, setFinish] = useState<boolean>(false);
@@ -40,7 +43,7 @@ const AudioChallenge: React.FC<IAudioChallenge> = ({ lvl }) => {
   useEffect(() => {
     if (!words) {
       wordAPI.getWords(lvl, Math.floor(Math.random() * 20))
-        .then((res) => setWords(res));
+        .then((res) => dispatch(addGameWords(res)));
     }
     if ((amountAttempt % 5) === 1) {
       setNewRequest(true);
@@ -49,7 +52,7 @@ const AudioChallenge: React.FC<IAudioChallenge> = ({ lvl }) => {
     if (newRequest) {
       wordAPI.getWords(lvl, Math.floor(Math.random() * 20))
         .then((res) => {
-          setWords(res);
+          dispatch(addGameWords(res));
           setNewRequest(false);
         });
     }
