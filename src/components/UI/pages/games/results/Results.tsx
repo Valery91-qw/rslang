@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './results.module.css';
 import { RootStoreType } from '../../../../../bll/store';
-import { MatchesWord } from '../../../../../bll/results/resultsState';
+import { IMatchesWord } from '../../../../../bll/results/resultsState';
 import { removeResults } from '../../../../../bll/results/resultsActions';
 import resultsConstants from './results.constants';
 import statisticsAPI from "../../../../../dal/wordAPI/statisticsAPI";
@@ -13,7 +13,7 @@ interface IResults {
   kindOfGame: string
 }
 
-function longestSeria(words: Array<MatchesWord>) {
+function longestSeria(words: Array<IMatchesWord>) {
   let longest = [];
   let count = 0;
   for (let i = 0; i < words.length; i += 1) {
@@ -29,7 +29,7 @@ function longestSeria(words: Array<MatchesWord>) {
 
 const Results: React.FC<IResults> = ({ handleClose, isShow , kindOfGame}) => {
   const dispatch = useDispatch();
-  const matchesWord = useSelector<RootStoreType, Array<MatchesWord>>(
+  const matchesWord = useSelector<RootStoreType, Array<IMatchesWord>>(
     (state) => state.results.statistic,
   );
   const isShowClass = isShow ? styles.modalShow : styles.modalHidden;
