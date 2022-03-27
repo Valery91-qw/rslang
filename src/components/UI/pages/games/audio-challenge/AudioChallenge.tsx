@@ -41,9 +41,11 @@ const AudioChallenge: React.FC<IAudioChallenge> = ({ lvl }) => {
   }, [amountAttempt]);
 
   useEffect(() => {
-    if (!words) {
+    if (!words.length) {
       wordAPI.getWords(lvl, Math.floor(Math.random() * 20))
-        .then((res) => dispatch(addGameWords(res)));
+        .then((res) => {
+          dispatch(addGameWords(res))
+        });
     }
     if ((amountAttempt % 5) === 1) {
       setNewRequest(true);
