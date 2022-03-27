@@ -1,9 +1,9 @@
 import {IWord} from "../../types/types";
 
-export const gameState: sprintStateType = {
+export const gameState: GameStateType = {
     gameWords: [],
 };
 
-export type sprintStateType = {
+export type GameStateType = {
     gameWords: Array<IWord>
 }

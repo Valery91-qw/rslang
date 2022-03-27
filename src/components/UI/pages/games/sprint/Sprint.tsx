@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import styles from './sprint.module.css';
 import DisplayedCard from './displayed-card/DisplayedCard';
 import Timer from './timer/Timer';
@@ -8,6 +8,8 @@ import wordAPI from '../../../../../dal/wordAPI/wordAPI';
 import Results from '../results/Results';
 import { addWordToResult } from '../../../../../bll/results/resultsActions';
 import { IWord } from '../../../../../types/types';
+import {addGameWords} from "../../../../../bll/game/gameActions";
+import {RootStoreType} from "../../../../../bll/store";
 
 interface ISprint {
   lvl?: number
@@ -17,7 +19,7 @@ const Sprint: React.FC<ISprint> = ({ lvl }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [currentResult, setCurrentResult] = useState<number>(0);
-  const [words, setWords] = useState<Array<IWord>>();
+  const words = useSelector<RootStoreType, Array<IWord>>(state => state.game.gameWords)
   const [oneWord, setOneWord] = useState<IWord>();
   const [twoWord, setTwoWord] = useState<IWord>();
   const [isLoad, setIsLoad] = useState<boolean>(false);
@@ -39,7 +41,7 @@ const Sprint: React.FC<ISprint> = ({ lvl }) => {
     dispatch(addWordToResult({
       word: word.word, translate: word.wordTranslate, id: word.id, isGuessed,
     }));
-    setWords(words?.filter((el) => el !== word));
+    dispatch(addGameWords(words?.filter((el) => el !== word)));
   };
 
   const finishGame = useCallback(() => {
@@ -49,7 +51,7 @@ const Sprint: React.FC<ISprint> = ({ lvl }) => {
 
   useEffect(() => {
     wordAPI.getWords(lvl).then((res) => {
-      setWords(res);
+      dispatch(addGameWords(res));
     });
   }, [lvl]);
 
@@ -62,11 +64,11 @@ const Sprint: React.FC<ISprint> = ({ lvl }) => {
       setIsLoad(true);
       wordAPI.getWords(lvl, Math.floor(Math.random() * 10))
         .then((res) => {
-          setWords([...res]);
+          dispatch(addGameWords(res))
           setIsLoad(false);
         });
     }
-  }, [words, words?.length, setOneWord, setTwoWord, setFinish, finishGame, setWords, lvl]);
+  }, [words, words?.length, setOneWord, setTwoWord, setFinish, finishGame, lvl]);
 
   return (
     <div className={styles.wrapper}>
