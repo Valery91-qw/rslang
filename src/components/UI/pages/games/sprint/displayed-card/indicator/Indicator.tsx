@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './indicator.module.css';
+import IndicatorConstant from "./Indicator.constant";
 
 const Indicator: React.FC<{ amount: number }> = ({ amount }) => {
-  const col = amount % 4;
+  const col = amount % IndicatorConstant.amountInStreak;
 
   return (
     <ul className={styles.indicator}>
