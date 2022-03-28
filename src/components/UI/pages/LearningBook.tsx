@@ -26,8 +26,9 @@ const LearningBook:React.FC = () => {
   return (
     <div className={classes.EbookWrapper}>
       <div className={classes.Ebooks}>
-        {/*<h1>hhhhhhhhh</h1>*/}
-        <CardListLearning nums={pageSet} />
+        <CardListLearning
+          // nums={pageSet}
+        />
       </div>
       <LearningBookFooter getPageFromFooter={getPage} />
     </div>

@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from 'redux';
 import resultsReducer from './results/resultsReducer';
-import complexWordsReducer from "./complex-words/complexWordsReducer";
+import complexWordsReducer from './complex-words/complexWordsReducer';
 
 const rootState = combineReducers({
   results: resultsReducer,

@@ -15,8 +15,10 @@ export interface IUserInfo {
   'userId': string;
   'name': string;
 }
-export interface IWord {
+export interface IWord extends IBodyWord {
   id:string;
+}
+export interface IBodyWord {
   group:number;
   page:number;
   word:string;
@@ -31,6 +33,7 @@ export interface IWord {
   textMeaningTranslate:string;
   textExampleTranslate:string;
 }
+
 export interface IPage {
   page: number;
   group: number;
@@ -43,4 +46,19 @@ export interface IUserWord {
 }
 export interface IOptionWords {
   optionKey: string;
+}
+
+export interface IAggregatedWords extends IAggregatedWord{
+  paginatedResults:Array<IAggregatedWord>;
+  totalCount:Array<ICountWords>;
+}
+export interface ICountWords {
+  count:number;
+}
+
+export interface IAggregatedWord extends IBodyWord {
+  _id: string;
+  userWord: {
+    difficulty: string;
+  }
 }

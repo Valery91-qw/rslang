@@ -32,20 +32,12 @@ const Card:React.FC<ICardProps> = ({ oneWord, userList}) => {
     isLearningShort = isShort.includes(oneWord?.id!);
     if (isLearningShort) {
       cardColor = classes.CardLearning;
-      // setIsLearning(true);
     } else {
       cardColor = classes.Card;
     }
-    console.log('Card is learning =>', oneWord?.id, '=', isLearningShort);
-    console.log(isShort);
-    // console.log(userList);
   }
   checkLearningID();
 
-  // useEffect(() => {
-  //   cardColor = isLearning? classes.CardLearning: classes.Card;
-  //   console.log(`change Color ${isLearning} = ${cardColor}`);
-  // },[isLearning])
   const changeStatusCard = () => {
     learningWordAPI.createUserWord(typeof oneWord?.id === 'undefined' ? '' : oneWord?.id)
       .then(() => {
@@ -69,8 +61,6 @@ const Card:React.FC<ICardProps> = ({ oneWord, userList}) => {
   async function playSoundThree() {
     const playSoundThird:HTMLAudioElement = document.getElementById(`playSoundThird${oneWord?.id}`) as HTMLAudioElement;
     await playSoundThird.play();
-    // const createUserWord = () => {
-    // }
   }
 
   return (
@@ -108,16 +98,6 @@ const Card:React.FC<ICardProps> = ({ oneWord, userList}) => {
       <div className="card-footer">
         <button onClick={() => {
           changeStatusCard();
-
-          // learningWordAPI.createUserWord(typeof oneWord?.id === 'undefined' ? '' : oneWord?.id)
-          //   .then(() => {
-          //     usersAPI.getUserList()
-          //       .then((res) => {
-          //         setUserListNew(res);
-          //         setIsLearning(true);
-          //       })
-          //   })
-
         }} className="btn btn-primary btn-primary-my">!</button>
         <h6>Выбирайте сложность</h6>
       </div>

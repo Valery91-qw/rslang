@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IUserInfo, IUserWord } from '../../types/types';
+import {IAggregatedWords, IAggregatedWord, IUserInfo, IUserWord} from '../../types/types';
 import { API_URL } from '../../constants';
 
 const instance = axios.create({
@@ -19,9 +19,6 @@ const usersAPI = {
     const configReq = {
       headers: { Authorization: `Bearer ${userToken}` },
     };
-    // const bodyParameters = {
-    //   key: "value"
-    // };
     return instance.get<Array<IUserWord>>(PathWords, configReq)
       .then((res) => {
         const result = res.data;
@@ -30,26 +27,22 @@ const usersAPI = {
       })
       .catch((err) => err.message);
   },
-  getUserWord(wordId:string): Promise<Array<IUserWord[]>> {
+  getLearningWord(): Promise<Array<IAggregatedWord>> {
     const userIDs = localStorage.getItem('userID')!;
     let userToken = '';
     userToken = localStorage.getItem('token')!;
-    let PathWords = '';
-    PathWords = PathWords.concat(
-      '/users/', userIDs, '/words/', wordId,
-    );
     const configReq = {
       headers: { Authorization: `Bearer ${userToken}` },
     };
-
-    const bodyParameters = {
-      difficulty: 'learning',
-      optional: {},
-    };
-    return instance.post<IUserWord>(PathWords, bodyParameters, configReq)
+    let PathWords = '';
+    PathWords = PathWords.concat(
+      '/users/', userIDs,
+      '/aggregatedWords?page=0&wordsPerPage=4000&filter=',
+      '%7B%22userWord.difficulty%22%3A%22learning%22%7D'
+    );
+    return instance.get<Array<IAggregatedWords>>(PathWords, configReq)
       .then((res) => {
-        const result = res.data.wordId;
-        console.log(result);
+        const result = res.data[0].paginatedResults;
         return result;
       })
       .catch((err) => err.message);

@@ -1,6 +1,6 @@
-import {complexWordsState, IComplexWordsState} from "./complexWordsState";
-import ComplexWordsConstants from "./complexWords.constants";
-import {ComplexWordsActionsType} from "./complexWordsActions";
+import {complexWordsState, IComplexWordsState} from './complexWordsState';
+import ComplexWordsConstants from './complexWords.constants';
+import {ComplexWordsActionsType} from './complexWordsActions';
 
 export default function complexWordsReducer(state = complexWordsState, action: ComplexWordsActionsType): IComplexWordsState {
     switch (action.type) {
